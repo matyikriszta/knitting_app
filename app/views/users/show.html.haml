@@ -5,7 +5,7 @@
   = @user.name
 %p
   %b User image:
-  = @user.user_image
+  = image_tag(@user.user_image.thumb.url)
 %p
   %b Membership:
   = @user.membership
