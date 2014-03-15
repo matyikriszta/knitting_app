@@ -2,21 +2,17 @@ KnittingApp::Application.routes.draw do
 
   resources :patterns
 
-
   devise_for :users
 
   resources :categories
 
-
   resources :stitches
-
 
   resources :rows
 
-
   resources :users
 
-  root :to => "static#index"
+  root to: 'static#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

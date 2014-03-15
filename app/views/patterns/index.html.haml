@@ -1,6 +1,6 @@
-#pattern_card
-  - @patterns.each do |pattern|
-    - if pattern.status == "public"
+- @patterns.each do |pattern|
+  - if pattern.status == "public"
+    #pattern_card
       %p= link_to pattern.name, pattern
       %p= pattern.user
       %p= pattern.difficulty.try(:name)
