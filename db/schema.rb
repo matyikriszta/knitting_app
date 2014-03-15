@@ -11,9 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140315143442) do
+ActiveRecord::Schema.define(:version => 20140315152401) do
 
   create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "difficulties", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -24,15 +30,15 @@ ActiveRecord::Schema.define(:version => 20140315143442) do
     t.integer  "user_id"
     t.string   "status"
     t.integer  "no_of_rows"
-    t.string   "difficulty"
     t.string   "description"
     t.text     "instructions"
     t.text     "notes"
     t.string   "yarn"
     t.string   "equipment"
     t.integer  "category_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "difficulty_id"
   end
 
   add_index "patterns", ["category_id"], :name => "index_patterns_on_category_id"
