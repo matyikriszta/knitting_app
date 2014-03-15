@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  user: 
+  status: false
+  no_of_rows: 1
+  difficulty: MyString
+  description: MyString
+  instructions: MyText
+  notes: MyText
+  yarn: MyString
+  equipment: MyString
+  category: 
+
+two:
+  name: MyString
+  user: 
+  status: false
+  no_of_rows: 1
+  difficulty: MyString
+  description: MyString
+  instructions: MyText
+  notes: MyText
+  yarn: MyString
+  equipment: MyString
+  category: 

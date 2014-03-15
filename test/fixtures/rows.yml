@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  pattern: 
+  no_of_stitches: 1
+  position: 1
+
+two:
+  pattern: 
+  no_of_stitches: 1
+  position: 1

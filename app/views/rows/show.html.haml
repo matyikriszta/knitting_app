@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Pattern:
+  = @row.pattern
+%p
+  %b No of stitches:
+  = @row.no_of_stitches
+%p
+  %b Position:
+  = @row.position
+
+= link_to 'Edit', edit_row_path(@row)
+\|
+= link_to 'Back', rows_path

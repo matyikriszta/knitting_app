@@ -1,5 +1,17 @@
 KnittingApp::Application.routes.draw do
 
+  resources :categories
+
+
+  resources :stitches
+
+
+  resources :rows
+
+
+  resources :patterns
+
+
   resources :users
 
   root :to => "static#index"

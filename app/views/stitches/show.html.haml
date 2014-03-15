@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Row:
+  = @stitch.row
+%p
+  %b Color:
+  = @stitch.color
+%p
+  %b Type:
+  = @stitch.type
+%p
+  %b Position:
+  = @stitch.position
+
+= link_to 'Edit', edit_stitch_path(@stitch)
+\|
+= link_to 'Back', stitches_path

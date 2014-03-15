@@ -1,0 +1,39 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @pattern.name
+%p
+  %b User:
+  = @pattern.user
+%p
+  %b Status:
+  = @pattern.status
+%p
+  %b No of rows:
+  = @pattern.no_of_rows
+%p
+  %b Difficulty:
+  = @pattern.difficulty
+%p
+  %b Description:
+  = @pattern.description
+%p
+  %b Instructions:
+  = @pattern.instructions
+%p
+  %b Notes:
+  = @pattern.notes
+%p
+  %b Yarn:
+  = @pattern.yarn
+%p
+  %b Equipment:
+  = @pattern.equipment
+%p
+  %b Category:
+  = @pattern.category
+
+= link_to 'Edit', edit_pattern_path(@pattern)
+\|
+= link_to 'Back', patterns_path

@@ -1,0 +1,23 @@
+%h1 Listing rows
+
+%table
+  %tr
+    %th Pattern
+    %th No of stitches
+    %th Position
+    %th
+    %th
+    %th
+
+  - @rows.each do |row|
+    %tr
+      %td= row.pattern
+      %td= row.no_of_stitches
+      %td= row.position
+      %td= link_to 'Show', row
+      %td= link_to 'Edit', edit_row_path(row)
+      %td= link_to 'Destroy', row, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Row', new_row_path

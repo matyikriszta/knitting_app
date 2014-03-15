@@ -1,0 +1,25 @@
+%h1 Listing stitches
+
+%table
+  %tr
+    %th Row
+    %th Color
+    %th Type
+    %th Position
+    %th
+    %th
+    %th
+
+  - @stitches.each do |stitch|
+    %tr
+      %td= stitch.row
+      %td= stitch.color
+      %td= stitch.type
+      %td= stitch.position
+      %td= link_to 'Show', stitch
+      %td= link_to 'Edit', edit_stitch_path(stitch)
+      %td= link_to 'Destroy', stitch, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Stitch', new_stitch_path

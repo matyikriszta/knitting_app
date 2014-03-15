@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  row: 
+  color: MyString
+  type: 
+  position: 1
+
+two:
+  row: 
+  color: MyString
+  type: 
+  position: 1
