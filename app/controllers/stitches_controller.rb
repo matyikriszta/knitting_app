@@ -1,4 +1,5 @@
 class StitchesController < ApplicationController
+  before_filter :authenticate_user!
   # GET /stitches
   # GET /stitches.json
   def index

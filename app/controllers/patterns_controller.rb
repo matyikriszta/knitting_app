@@ -1,4 +1,5 @@
 class PatternsController < ApplicationController
+  before_filter :authenticate_user!
   # GET /patterns
   # GET /patterns.json
   def index
