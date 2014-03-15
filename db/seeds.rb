@@ -7,6 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Category.delete_all
+Difficulty.delete_all
 
 Category.create name: 'ladies'
 Category.create name: 'men'
@@ -14,3 +15,9 @@ Category.create name: 'children'
 Category.create name: 'baby'
 Category.create name: 'holiday'
 Category.create name: 'basic'
+
+Difficulty.create name: 'beginner'
+Difficulty.create name: 'easy'
+Difficulty.create name: 'intermediate'
+Difficulty.create name: 'advanced'
+
