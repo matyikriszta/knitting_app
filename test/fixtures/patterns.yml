@@ -3,7 +3,7 @@
 one:
   name: MyString
   user: 
-  status: false
+  status: MyString
   no_of_rows: 1
   difficulty: MyString
   description: MyString
@@ -16,7 +16,7 @@ one:
 two:
   name: MyString
   user: 
-  status: false
+  status: MyString
   no_of_rows: 1
   difficulty: MyString
   description: MyString

@@ -1,5 +1,8 @@
 KnittingApp::Application.routes.draw do
 
+  resources :patterns
+
+
   devise_for :users
 
   resources :categories
@@ -9,9 +12,6 @@ KnittingApp::Application.routes.draw do
 
 
   resources :rows
-
-
-  resources :patterns
 
 
   resources :users

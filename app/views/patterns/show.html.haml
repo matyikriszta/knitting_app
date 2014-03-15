@@ -32,7 +32,7 @@
   = @pattern.equipment
 %p
   %b Category:
-  = @pattern.category
+  = @pattern.category.try(:name)
 
 = link_to 'Edit', edit_pattern_path(@pattern)
 \|

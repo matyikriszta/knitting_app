@@ -10,17 +10,19 @@
     = f.label :name
     = f.text_field :name
   .field
-    = f.label :user
-    = f.text_field :user
+    = f.hidden_field :user_id
   .field
     = f.label :status
-    = f.check_box :status
+    = f.radio_button :status, 'public', :checked => true
+    = f.label :status_public, 'Public'
+    = f.radio_button :status, 'private'
+    = f.label :status_private, 'Private'
   .field
     = f.label :no_of_rows
     = f.number_field :no_of_rows
   .field
     = f.label :difficulty
-    = f.text_field :difficulty
+    = f.select :difficulty, options_for_select([['beginner', 1], ['easy', 2], ['intermediate', 2], ['advanced', 2]])
   .field
     = f.label :description
     = f.text_field :description
@@ -37,7 +39,7 @@
     = f.label :equipment
     = f.text_field :equipment
   .field
-    = f.label :category
-    = f.text_field :category
+    = f.label :category_id
+    = f.select :category_id, Category.all.collect {|category| [ category.name, category.id ] }
   .actions
     = f.submit 'Save'

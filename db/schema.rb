@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140315131516) do
+ActiveRecord::Schema.define(:version => 20140315143442) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(:version => 20140315131516) do
   create_table "patterns", :force => true do |t|
     t.string   "name"
     t.integer  "user_id"
-    t.boolean  "status"
+    t.string   "status"
     t.integer  "no_of_rows"
     t.string   "difficulty"
     t.string   "description"
