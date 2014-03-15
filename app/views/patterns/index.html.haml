@@ -1,39 +1,11 @@
-%h1 Listing patterns
-
-%table
-  %tr
-    %th Name
-    %th User
-    %th Status
-    %th No of rows
-    %th Difficulty
-    %th Description
-    %th Instructions
-    %th Notes
-    %th Yarn
-    %th Equipment
-    %th Category
-    %th
-    %th
-    %th
-
+#pattern_card
   - @patterns.each do |pattern|
-    %tr
-      %td= pattern.name
-      %td= pattern.user
-      %td= pattern.status
-      %td= pattern.no_of_rows
-      %td= pattern.difficulty
-      %td= pattern.description
-      %td= pattern.instructions
-      %td= pattern.notes
-      %td= pattern.yarn
-      %td= pattern.equipment
-      %td= pattern.category
-      %td= link_to 'Show', pattern
-      %td= link_to 'Edit', edit_pattern_path(pattern)
-      %td= link_to 'Destroy', pattern, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Pattern', new_pattern_path
+    - if pattern.status == "public"
+      %p= link_to pattern.name, pattern
+      %p= pattern.user
+      %p= pattern.difficulty.try(:name)
+      %p= pattern.description
+      %p= pattern.instructions
+      %p= pattern.yarn
+      %p= pattern.equipment
+      %p= pattern.category.try(:name)

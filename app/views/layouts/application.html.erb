@@ -7,16 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div id="nav">
+  <h1><%= link_to 'Wool.ly', root_path %></h1>
 
   <div class="login">
     <% if current_user %>
-      <%= current_user.name %>
-      <%= link_to 'log out', destroy_user_session_path, method: :delete %>
+      <%= current_user.email %>
+      <%= link_to 'log out', destroy_user_session_path, method: :delete %> | <%= link_to 'new pattern', new_pattern_path, class: 'add_pattern_button' %>
     <% else %>
       <%= link_to 'sign in', new_user_session_path %>
       <%= link_to 'sign up', new_user_registration_path %>
     <% end %>
   </div>
+
+</div>
 
 <!--   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p> -->

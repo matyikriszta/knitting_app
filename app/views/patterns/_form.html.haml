@@ -21,8 +21,8 @@
     = f.label :no_of_rows
     = f.number_field :no_of_rows
   .field
-    = f.label :difficulty
-    = f.select :difficulty, options_for_select([['beginner', 1], ['easy', 2], ['intermediate', 2], ['advanced', 2]])
+    = f.label :difficulty_id
+    = f.select :difficulty_id, Difficulty.all.collect {|difficulty| [ difficulty.name, difficulty.id ] }
   .field
     = f.label :description
     = f.text_field :description

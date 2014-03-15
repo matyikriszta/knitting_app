@@ -12,4 +12,13 @@
  *= require_tree .
  */
 
+ #pattern_card {
+  width: 20%;
+  border: 1px solid black;
+ }
+
+ a {
+  text-decoration: none;
+ }
+
  

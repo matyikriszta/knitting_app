@@ -14,7 +14,7 @@
   = @pattern.no_of_rows
 %p
   %b Difficulty:
-  = @pattern.difficulty
+  = @pattern.difficulty.try(:name)
 %p
   %b Description:
   = @pattern.description
