@@ -7,6 +7,7 @@ gem 'rails', '3.2.17'
 
 gem 'sqlite3'
 gem 'devise'
+gem 'omniauth-google-oauth2'
 gem 'haml-rails'
 gem 'cancan'
 gem 'ransack'

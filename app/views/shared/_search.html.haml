@@ -1,0 +1,5 @@
+= form_tag '/patterns/search', {method: :get} do
+
+  %p Category
+  = select :category_id, Category.all.collect {|category| [ category.name, category.id ] }
+  = submit_tag :submit, { value: 'Search' }

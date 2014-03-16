@@ -80,4 +80,10 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  # FIND likes for current_user
+  def likes
+    @user_likes = current_user.find_liked_items
+  end
+
 end

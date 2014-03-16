@@ -81,15 +81,27 @@ class PatternsController < ApplicationController
     end
   end
 
-  def like
+  def like_show
     @pattern = Pattern.find(params[:id])
     @pattern.liked_by current_user unless current_user.id == @pattern.user_id
     redirect_to @pattern
   end
 
-  def unlike
+  def unlike_show
     @pattern = Pattern.find(params[:id])
     @pattern.downvote_from current_user
     redirect_to @pattern
+  end
+
+  def like_index
+    @pattern = Pattern.find(params[:id])
+    @pattern.liked_by current_user unless current_user.id == @pattern.user_id
+    redirect_to patterns_path
+  end
+
+  def unlike_index
+    @pattern = Pattern.find(params[:id])
+    @pattern.downvote_from current_user
+    redirect_to patterns_path
   end
 end

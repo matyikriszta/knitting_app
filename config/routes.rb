@@ -2,8 +2,10 @@ KnittingApp::Application.routes.draw do
 
   resources :patterns do
     member do
-      put "like", to: "patterns#like"
-      put "unlike", to: "patterns#unlike"
+      put "like_show", to: "patterns#like_show"
+      put "unlike_show", to: "patterns#unlike_show"
+      put "like_index", to: "patterns#like_index"
+      put "unlike_index", to: "patterns#unlike_index"
     end
   end
 
@@ -16,6 +18,8 @@ KnittingApp::Application.routes.draw do
   resources :rows
 
   resources :users
+
+  get "users/:id/likes", to: "users#likes", as: 'user_likes'
 
   root to: 'static#index'
 
