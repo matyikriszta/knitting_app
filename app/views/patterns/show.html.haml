@@ -34,8 +34,8 @@
   %b Category:
   = @pattern.category.try(:name)
 
-= link_to "Like", like_pattern_path(@pattern), method: :put
-\|
+= link_to like_pattern_path(@pattern), method: :put do
+  %i.fa.fa-heart.fa-3x
 = link_to "Unlike", unlike_pattern_path(@pattern), method: :put
 \|
 = link_to 'Destroy', @pattern, :method => :delete, :data => { :confirm => 'Are you sure?' }
