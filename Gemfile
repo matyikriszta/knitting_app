@@ -13,6 +13,7 @@ gem 'ransack'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'acts_as_votable', '~> 0.8.0'
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'pry-rails'
