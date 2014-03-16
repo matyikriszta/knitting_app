@@ -37,7 +37,11 @@ class UserImageUploader < CarrierWave::Uploader::Base
   # end
 
   version :thumb do
-    process resize_to_fill: [200, 200]
+    process resize_to_fill: [50, 50]
+  end
+
+  version :profile do
+    process resize_to_fill: [150, 150]
   end
 
   version :detail do

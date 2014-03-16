@@ -2,7 +2,8 @@
   - if pattern.status == "public"
     #pattern_card
       %p= link_to pattern.name, pattern
-      %p= pattern.user
+      %P= image_tag(pattern.user.user_image.thumb.url)
+      %p= pattern.user.try(:name)
       %p= pattern.difficulty.try(:name)
       %p= pattern.description
       %p= pattern.instructions

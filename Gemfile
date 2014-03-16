@@ -9,12 +9,20 @@ gem 'sqlite3'
 gem 'devise'
 gem 'haml-rails'
 gem 'cancan'
+gem 'ransack'
 gem 'carrierwave'
 gem 'rmagick'
 
-group :development do
+group :development, :test do
+  gem 'pry-rails'
+  gem 'pry-debugger'
+  gem 'pry-stack_explorer'
+  gem 'annotate'
+  gem 'quiet_assets'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'meta_request'
+  gem 'faker'
 end
 
 

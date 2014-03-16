@@ -1,11 +1,9 @@
 %p#notice= notice
 
 %p
-  %b Name:
   = @user.name
 %p
-  %b User image:
-  = image_tag(@user.user_image.thumb.url)
+  = image_tag(@user.user_image.profile.url)
 %p
   %b Membership:
   = @user.membership
@@ -13,3 +11,14 @@
 = link_to 'Edit', edit_user_path(@user)
 \|
 = link_to 'Back', users_path
+
+- @user.patterns.each do |pattern|
+  - if pattern.user_id == current_user.id
+    #pattern_card
+      %p= link_to pattern.name, pattern
+      %p= pattern.difficulty.try(:name)
+      %p= pattern.description
+      %p= pattern.instructions
+      %p= pattern.yarn
+      %p= pattern.equipment
+      %p= pattern.category.try(:name)
