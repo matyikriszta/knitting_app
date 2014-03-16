@@ -80,4 +80,16 @@ class PatternsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def like
+    @pattern = Pattern.find(params[:id])
+    @pattern.liked_by current_user unless current_user.id == @pattern.user_id
+    redirect_to @pattern
+  end
+
+  def unlike
+    @pattern = Pattern.find(params[:id])
+    @pattern.downvote_from current_user
+    redirect_to @pattern
+  end
 end

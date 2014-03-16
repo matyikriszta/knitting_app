@@ -1,6 +1,11 @@
 KnittingApp::Application.routes.draw do
 
-  resources :patterns
+  resources :patterns do
+    member do
+      put "like", to: "patterns#like"
+      put "unlike", to: "patterns#unlike"
+    end
+  end
 
   devise_for :users
 

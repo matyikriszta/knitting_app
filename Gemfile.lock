@@ -179,7 +179,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  acts_as_votable
+  acts_as_votable (~> 0.8.0)
   annotate
   better_errors
   binding_of_caller

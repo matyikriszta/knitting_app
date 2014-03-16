@@ -5,7 +5,7 @@
   = @pattern.name
 %p
   %b User:
-  = @pattern.user
+  = @pattern.user.try(:name)
 %p
   %b Status:
   = @pattern.status
@@ -34,6 +34,10 @@
   %b Category:
   = @pattern.category.try(:name)
 
+= link_to "Like", like_pattern_path(@pattern), method: :put
+\|
+= link_to "Unlike", unlike_pattern_path(@pattern), method: :put
+\|
 = link_to 'Destroy', @pattern, :method => :delete, :data => { :confirm => 'Are you sure?' }
 \|
 = link_to 'Edit', edit_pattern_path(@pattern)
