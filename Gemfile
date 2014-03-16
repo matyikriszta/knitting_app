@@ -12,6 +12,7 @@ gem 'cancan'
 gem 'ransack'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'acts_as_votable'
 
 group :development, :test do
   gem 'pry-rails'
