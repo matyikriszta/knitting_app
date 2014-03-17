@@ -16,6 +16,7 @@ gem 'rmagick'
 gem 'acts_as_votable', '~> 0.8.0'
 gem 'font-awesome-rails'
 gem 'nested_form'
+gem 'simple_form'
 
 group :development, :test do
   gem 'pry-rails'

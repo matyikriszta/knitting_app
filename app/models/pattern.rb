@@ -1,5 +1,6 @@
 class Pattern < ActiveRecord::Base
   acts_as_votable
+  accepts_nested_attributes_for :rows, allow_destroy: true
 
   belongs_to :user
   belongs_to :category
@@ -7,5 +8,5 @@ class Pattern < ActiveRecord::Base
   has_many :rows
   has_many :images
 
-  attr_accessible :description, :equipment, :instructions, :name, :no_of_rows, :notes, :status, :yarn, :category_id, :user_id, :difficulty_id, :sequence
+  attr_accessible :description, :equipment, :instructions, :name, :no_of_rows, :notes, :status, :yarn, :category_id, :user_id, :difficulty_id, :sequence, :rows_attributes
 end

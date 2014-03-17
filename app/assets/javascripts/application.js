@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require underscore
-//= require backbone
+//= require jquery_nested_form
 //= require_tree .
 

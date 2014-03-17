@@ -1,4 +1,4 @@
-= form_for @pattern do |f|
+= nested_form_for @pattern do |f|
   - if @pattern.errors.any?
     #error_explanation
       %h2= "#{pluralize(@pattern.errors.count, "error")} prohibited this pattern from being saved:"
