@@ -1,5 +1,4 @@
 class RowsController < ApplicationController
-  before_filter :authenticate_user!
   # GET /rows
   # GET /rows.json
   def index

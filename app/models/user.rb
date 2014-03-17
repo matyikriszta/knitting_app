@@ -14,4 +14,14 @@ class User < ActiveRecord::Base
   attr_accessible :membership, :name, :user_image, :role
 
   mount_uploader :user_image, UserImageUploader
+
+  def role?(role_to_compare)
+    self.role.to_s == role_to_compare.to_s
+  end 
+
+  private
+  def set_role_to_registered
+    self.role ||= "registered"
+  end
+
 end

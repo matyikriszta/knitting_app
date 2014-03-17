@@ -1,4 +1,5 @@
 class PatternsController < ApplicationController
+  before_filter :authenticate_user!
   # GET /patterns
   # GET /patterns.json
   def index
@@ -25,6 +26,7 @@ class PatternsController < ApplicationController
   # GET /patterns/new.json
   def new
     @pattern = Pattern.new
+    @pattern.rows.build
 
     respond_to do |format|
       format.html # new.html.erb
