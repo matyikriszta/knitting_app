@@ -21,3 +21,8 @@ Difficulty.create name: 'easy'
 Difficulty.create name: 'intermediate'
 Difficulty.create name: 'advanced'
 
+User.create name:'Kriszta', email: 'kriszta@kriszta.com', password: 'password', role: 'admin'
+User.create name:'Tim', email: 'tim@tim.com', password: 'password', role: 'registered'
+User.create name:'Nico', email: 'nico@nico.com', password: 'password', role: 'registered'
+User.create name:'Max', email: 'max@max.com', password: 'password', role: 'registered'
+
