@@ -10,7 +10,7 @@ class Pattern < ActiveRecord::Base
 
   accepts_nested_attributes_for :rows, allow_destroy: true
 
-  # attr_accessor :no_of_rows
+  attr_accessor :no_of_stitches, :yarn_gauge, :width_cm
 
-  attr_accessible :description, :equipment, :instructions, :name, :no_of_rows, :notes, :status, :yarn, :category_id, :difficulty_id, :sequence, :rows_attributes
+  attr_accessible :description, :equipment, :instructions, :name, :no_of_rows, :notes, :status, :yarn, :category_id, :difficulty_id, :no_of_stitches, :yarn_gauge, :width_cm
 end

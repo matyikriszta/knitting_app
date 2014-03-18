@@ -5,6 +5,7 @@
       %ul
         - @pattern.errors.full_messages.each do |msg|
           %li= msg
+
   / .field
   /   = p.simple_fields_for :rows do |r|
   /     = r.input :no_of_stitches
@@ -13,10 +14,13 @@
   .field
     = p.input :no_of_rows
   .field
-    = p.simple_fields_for :rows do |r|
-      = r.input :no_of_stitches
+    = p.input :no_of_stitches, label: 'No. of stitches in a row'
   .field
-    = p.input :status, collection: ['public', 'private'], as: :radio_buttons, checked_value: 'public' 
+    = p.input :yarn_gauge
+  .field
+    = p.input :width_cm
+  .field
+    = p.input :status, collection: ['public', 'private'], as: :radio_buttons 
   .field
     = p.association :difficulty
   .field

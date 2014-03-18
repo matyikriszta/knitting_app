@@ -44,8 +44,10 @@ class PatternsController < ApplicationController
     @pattern = Pattern.new(params[:pattern])
     @pattern.user = current_user
     @pattern.no_of_rows.to_i.times do
-      r = @pattern.rows.build(no_of_stitches: 10)
-      # r.stiches.build
+      @row = @pattern.rows.build
+      @pattern.no_of_stitches.to_i.times do
+        @row.stitches.build
+      end
     end
 
     respond_to do |format|

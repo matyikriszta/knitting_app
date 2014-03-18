@@ -1,49 +1,52 @@
 %p#notice= notice
 
 #pattern
-- @pattern.rows.each do |row|
-  #row
+  - @pattern.rows.each do |row|
+    .row
+      - row.stitches.each do |stitch|
+        .stitch
 
 #info  
-%p
-  %b Name:
-  = @pattern.name
-%p
-  %b User:
-  = @pattern.user.try(:name)
-%p
-  %b Status:
-  = @pattern.status
-%p
-  %b Difficulty:
-  = @pattern.difficulty.try(:name)
-%p
-  %b Description:
-  = @pattern.description
-%p
-  %b Instructions:
-  = @pattern.instructions
-%p
-  %b Notes:
-  = @pattern.notes
-%p
-  %b Yarn:
-  = @pattern.yarn
-%p
-  %b Equipment:
-  = @pattern.equipment
-%p
-  %b Category:
-  = @pattern.category.try(:name)
+  %p
+    %b Name:
+    = @pattern.name
+  %p
+    %b User:
+    = @pattern.user.try(:name)
+  %p
+    %b Status:
+    = @pattern.status
+  %p
+    %b Difficulty:
+    = @pattern.difficulty.try(:name)
+  %p
+    %b Description:
+    = @pattern.description
+  %p
+    %b Instructions:
+    = @pattern.instructions
+  %p
+    %b Notes:
+    = @pattern.notes
+  %p
+    %b Yarn:
+    = @pattern.yarn
+  %p
+    %b Equipment:
+    = @pattern.equipment
+  %p
+    %b Category:
+    = @pattern.category.try(:name)
 
-= link_to like_show_pattern_path(@pattern), method: :put do
-  %i.fa.fa-heart.fa-3x
-= link_to "Unlike", unlike_show_pattern_path(@pattern), method: :put
-\|
-= link_to 'Destroy', @pattern, :method => :delete, :data => { :confirm => 'Are you sure?' }
-\|
-= link_to 'Edit', edit_pattern_path(@pattern)
-\|
-= link_to 'Back', patterns_path
+#buttons
+  = link_to like_show_pattern_path(@pattern), method: :put do
+    %i.fa.fa-heart.fa-3x
+  = link_to "Unlike", unlike_show_pattern_path(@pattern), method: :put
+  \|
+  = link_to 'Destroy', @pattern, :method => :delete, :data => { :confirm => 'Are you sure?' }
+  \|
+  = link_to 'Edit', edit_pattern_path(@pattern)
+  \|
+  = link_to 'Back', patterns_path
 
-.fb-comments data-href="http://localhost:3000/comments" data-numposts="5" data-colorscheme="light"
+= render 'shared/stitch'
