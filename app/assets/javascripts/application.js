@@ -11,6 +11,7 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require bootstrap-colorpicker
 //= require jquery_ujs
 //= require jquery_nested_form
 //= require_tree .
@@ -35,5 +36,7 @@ $(document).ready(function(){
   $(".stitch").mousedown(function() {
     $(this).css({background:"#333333"});
   });
+
+  $('#cp3').colorpicker();
 });
 
