@@ -18,6 +18,8 @@
 
 $(document).ready(function(){
 
+  $('#cp3').colorpicker();
+
   var isDown = false;   // Tracks status of mouse button
 
   $(document).mousedown(function() {
@@ -29,14 +31,12 @@ $(document).ready(function(){
 
   $(".stitch").mouseover(function(){
     if(isDown) {        // Only change css if mouse is down
-       $(this).css({background:"#333333"});
+       $(this).css({background:"rgb(133,58,82)"});
     }
   });
 
   $(".stitch").mousedown(function() {
-    $(this).css({background:"#333333"});
+    $(this).css({background:"rgb(133,58,82)"});
   });
-
-  $('#cp3').colorpicker();
 });
 
