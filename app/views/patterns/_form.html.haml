@@ -5,15 +5,18 @@
       %ul
         - @pattern.errors.full_messages.each do |msg|
           %li= msg
-  .field
-    = p.simple_fields_for :rows do |r|
-      = r.input :pattern_id, :value => @pattern.id
+  / .field
+  /   = p.simple_fields_for :rows do |r|
+  /     = r.input :no_of_stitches
   .field
     = p.input :name
   .field
-    = p.hidden_field :user_id, :value => current_user.id
+    = p.input :no_of_rows
   .field
-    = p.input :status, collection: ['private', 'public'], as: :radio_buttons 
+    = p.simple_fields_for :rows do |r|
+      = r.input :no_of_stitches
+  .field
+    = p.input :status, collection: ['public', 'private'], as: :radio_buttons, checked_value: 'public' 
   .field
     = p.association :difficulty
   .field

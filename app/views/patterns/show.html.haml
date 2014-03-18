@@ -1,5 +1,10 @@
 %p#notice= notice
 
+#pattern
+- @pattern.rows.each do |row|
+  #row
+
+#info  
 %p
   %b Name:
   = @pattern.name
@@ -9,9 +14,6 @@
 %p
   %b Status:
   = @pattern.status
-%p
-  %b No of rows:
-  = @pattern.no_of_rows
 %p
   %b Difficulty:
   = @pattern.difficulty.try(:name)

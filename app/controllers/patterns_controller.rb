@@ -26,10 +26,6 @@ class PatternsController < ApplicationController
   # GET /patterns/new.json
   def new
     @pattern = Pattern.new
-    no_of_rows = params[:no_of_rows]
-    no_of_rows.times do
-      @pattern.rows.build
-    end
 
     respond_to do |format|
       format.html # new.html.erb
@@ -46,6 +42,11 @@ class PatternsController < ApplicationController
   # POST /patterns.json
   def create
     @pattern = Pattern.new(params[:pattern])
+    @pattern.user = current_user
+    @pattern.no_of_rows.to_i.times do
+      r = @pattern.rows.build(no_of_stitches: 10)
+      # r.stiches.build
+    end
 
     respond_to do |format|
       if @pattern.save

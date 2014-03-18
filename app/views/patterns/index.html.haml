@@ -3,7 +3,7 @@
     #pattern_card
       %p= link_to pattern.name, pattern
       %P= image_tag(pattern.user.user_image.thumb.url) + pattern.user.try(:name)
-      %p= 'Difficulty: ' + pattern.difficulty.try(:name)
+      %p= pattern.difficulty.try(:name)
       %p= pattern.description
       %p= pattern.yarn
       %p= pattern.equipment
