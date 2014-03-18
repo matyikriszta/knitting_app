@@ -26,7 +26,10 @@ class PatternsController < ApplicationController
   # GET /patterns/new.json
   def new
     @pattern = Pattern.new
-    @pattern.rows.build
+    no_of_rows = params[:no_of_rows]
+    no_of_rows.times do
+      @pattern.rows.build
+    end
 
     respond_to do |format|
       format.html # new.html.erb
@@ -106,4 +109,5 @@ class PatternsController < ApplicationController
     @pattern.downvote_from current_user
     redirect_to patterns_path
   end
+
 end
