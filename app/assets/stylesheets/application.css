@@ -47,7 +47,6 @@ text-decoration: none;
   display: inline-block;
   max-width: 60%;
   overflow: hidden;
-  background: #eee;
 }
 
 .row {
@@ -72,5 +71,9 @@ text-decoration: none;
 
 input {
   width: 100px;
+}
+
+.well {
+  width: 300px;
 }
  

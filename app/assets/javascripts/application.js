@@ -18,7 +18,7 @@
 
 $(document).ready(function(){
 
-  $('.form-group').minicolors(settings);
+  $('.demo2').colorpicker();
 
   var isDown = false;   // Tracks status of mouse button
 
@@ -31,12 +31,14 @@ $(document).ready(function(){
 
   $(".stitch").mouseover(function(){
     if(isDown) {        // Only change css if mouse is down
-       $(this).css({background:"rgb(133,58,82)"});
+      $bgColor = $('#my_colour_code').css('background-color');
+      $(this).css({background: $bgColor});
     }
   });
 
   $(".stitch").mousedown(function() {
-    $(this).css({background:"rgb(133,58,82)"});
+    $bgColor = $('#my_colour_code').css('background-color');
+    $(this).css({background: $bgColor});
   });
 });
 
