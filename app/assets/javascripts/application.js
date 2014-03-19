@@ -18,7 +18,7 @@
 
 $(document).ready(function(){
 
-  $('#cp3').colorpicker();
+  $('.form-group').minicolors(settings);
 
   var isDown = false;   // Tracks status of mouse button
 
