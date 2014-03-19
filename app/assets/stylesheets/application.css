@@ -22,12 +22,12 @@ body {
   margin: 0 auto;
 }
 
-#pattern_card {
+.pattern_card {
   vertical-align: top;
   background: #eee;
-  width: 19%;
-  margin: 10px 10px 0 0;
+  /*width: 20%;*/
   display: inline-block;
+
 }
 
 #pattern_preview {

@@ -44,5 +44,14 @@ $(document).ready(function(){
 
   $("a[rel=leanModal]").leanModal();
 
+  var $container = $('#container');
+    // initialize
+    $container.masonry({
+      columnWidth: 10,
+      itemSelector: '.pattern_card'
+  });
+
+  var msnry = $container.data('masonry');
+
 });
 
