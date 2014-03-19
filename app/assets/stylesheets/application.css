@@ -25,9 +25,18 @@ body {
 #pattern_card {
   vertical-align: top;
   background: #eee;
-  width: 18%;
+  width: 19%;
   margin: 10px 10px 0 0;
   display: inline-block;
+}
+
+#pattern_preview {
+  background: #db5151;
+  height: 150px;
+}
+
+#pattern_description {
+  margin: 10px 0 0 10px;
 }
 
 a {
@@ -73,7 +82,33 @@ input {
   width: 100px;
 }
 
+label {
+  width: 180px;
+}
+
 .well {
   width: 300px;
+}
+
+#lean_overlay {
+    position: fixed;
+    z-index:100;
+    top: 0px;
+    left: 0px;
+    height:100%;
+    width:100%;
+    background: #000;
+    display: none;
+}
+
+#pattern_form {
+  display: none;
+  background-color: #fff;
+  padding: 20px 40px;
+  border-radius: 6px;
+}
+
+.btn-primary {
+  width: 180px;
 }
  

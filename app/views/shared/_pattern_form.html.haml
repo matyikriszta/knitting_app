@@ -1,0 +1,23 @@
+= simple_form_for Pattern.new do |p|
+  %p Create Pattern
+  %hr
+  %p Default grid (30 x 20)
+  .actions
+    = p.button :submit, class: 'btn-primary'
+  %hr
+  %p Manual:
+  .field
+    = p.input :no_of_rows
+  .field
+    = p.input :no_of_stitches, label: 'No of columns:'
+  %hr
+  %p From yarn gauge:
+  .field
+    = p.input :yarn_gauge
+  .field
+    = p.input :width_cm, label: 'Width (cm):'
+  %hr
+  .field
+    = p.input :status, collection: ['public', 'private'], as: :radio_buttons
+  .actions
+    = p.button :submit, class: 'btn-primary'

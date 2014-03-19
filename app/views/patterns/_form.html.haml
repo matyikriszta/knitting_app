@@ -6,9 +6,6 @@
         - @pattern.errors.full_messages.each do |msg|
           %li= msg
 
-  / .field
-  /   = p.simple_fields_for :rows do |r|
-  /     = r.input :no_of_stitches
   .field
     = p.input :name
   .field

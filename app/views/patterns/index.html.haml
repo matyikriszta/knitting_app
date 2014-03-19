@@ -1,15 +1,17 @@
 - @patterns.each do |pattern|
   - if pattern.status == "public"
     #pattern_card
-      %p= link_to pattern.name, pattern
-      %P= image_tag(pattern.user.user_image.thumb.url) + pattern.user.try(:name)
-      %p= pattern.difficulty.try(:name)
-      %p= pattern.description
-      %p= pattern.yarn
-      %p= pattern.equipment
-      %p= pattern.category.try(:name)
-      - unless pattern.user_id == current_user.id
-        = link_to like_index_pattern_path(pattern), method: :put do
-          %i.fa.fa-heart.fa-2x
-        - if pattern.likes.size > 0
-          = pattern.likes.size
+      #pattern_preview
+      #pattern_description
+        %p= link_to pattern.name, pattern
+        %P= image_tag(pattern.user.user_image.thumb.url) + pattern.user.try(:name)
+        %p= pattern.difficulty.try(:name)
+        %p= pattern.description
+        %p= pattern.yarn
+        %p= pattern.equipment
+        %p= pattern.category.try(:name)
+        - unless pattern.user_id == current_user.id
+          = link_to like_index_pattern_path(pattern), method: :put do
+            %i.fa.fa-heart.fa-2x
+          - if pattern.likes.size > 0
+            = pattern.likes.size

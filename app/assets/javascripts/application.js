@@ -39,5 +39,10 @@ $(document).ready(function(){
     $bgColor = $('#my_colour_code').css('background-color');
     $(this).css({background: $bgColor});
   });
+
+  $('#new_pattern').replaceWith('<a href=#pattern_form rel="leanModal" class="button">New Pattern</a>');
+
+  $("a[rel=leanModal]").leanModal();
+
 });
 

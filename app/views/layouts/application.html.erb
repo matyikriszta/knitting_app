@@ -36,7 +36,10 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to '', new_pattern_path, class: 'glyphicon glyphicon-plus-sign' %></li>
+        <li><%= link_to '', new_pattern_path, id: 'new_pattern' %></li>
+        <div id="pattern_form">
+          <%= render 'shared/pattern_form' %>
+        </div>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.name %> <b class="caret"></b></a>
           <ul class="dropdown-menu">
