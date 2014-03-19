@@ -44,5 +44,11 @@ $(document).ready(function(){
 
   $("a[rel=leanModal]").leanModal();
 
+  $('#container').isotope({
+  masonry: {
+    columnWidth: 240
+  }
+  });
+
 });
 
