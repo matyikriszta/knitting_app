@@ -15,7 +15,6 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'acts_as_votable', '~> 0.8.0'
 gem 'font-awesome-rails'
-gem 'nested_form'
 gem 'simple_form'
 
 group :development, :test do
@@ -36,7 +35,6 @@ end
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-  gem 'bootstrap-colorpicker-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby

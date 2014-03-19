@@ -39,13 +39,13 @@ text-decoration: none;
   float: right;
   display: inline-block;
   background: #eee;
-  max-width: 40%;
+  max-width: 25%;
 }
 
 #pattern {
   padding: 0 30px;
   display: inline-block;
-  max-width: 60%;
+  max-width: 75%;
   overflow: hidden;
 }
 
@@ -65,8 +65,8 @@ text-decoration: none;
 .stitch {
   display: inline-block;
   border: 1px solid black;
-  width: 2%;
-  height: 18px;
+  width: 1.5%;
+  height: 16px;
 }
 
 input {
