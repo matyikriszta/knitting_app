@@ -25,9 +25,9 @@ body {
 .pattern_card {
   vertical-align: top;
   background: #eee;
-  /*width: 20%;*/
+  width: 19%;
   display: inline-block;
-
+  margin-bottom: 5px;
 }
 
 #pattern_preview {
