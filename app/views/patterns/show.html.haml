@@ -1,6 +1,12 @@
 %p#notice= notice
 
-#info  
+#pattern.nine.columns.alpha
+  - @pattern.rows.each do |row|
+    .pattern_row
+      - row.stitches.each do |stitch|
+        .stitch
+
+#info.three.columns.omega
   %p
     %b Name:
     = @pattern.name

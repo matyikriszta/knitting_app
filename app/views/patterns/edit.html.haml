@@ -1,14 +1,14 @@
 %h1 Editing pattern
 
-= render 'shared/colorpicker'
-
-#pattern
+#pattern.nine.columns.alpha
   - @pattern.rows.each do |row|
     .row
       - row.stitches.each do |stitch|
         .stitch
 
-= render 'form'
+#info.three.columns.omega
+  = render 'shared/colorpicker'
+  = render 'form'
 
 = link_to 'Show', @pattern
 \|
