@@ -1,5 +1,3 @@
-%h1 Editing pattern
-
 #pattern.nine.columns.alpha
   - @pattern.rows.each do |row|
     .row
@@ -9,7 +7,3 @@
 #info.three.columns.omega
   = render 'shared/colorpicker'
   = render 'form'
-
-= link_to 'Show', @pattern
-\|
-= link_to 'Back', patterns_path
