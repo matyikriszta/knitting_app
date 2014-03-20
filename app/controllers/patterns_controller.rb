@@ -52,7 +52,7 @@ class PatternsController < ApplicationController
 
     respond_to do |format|
       if @pattern.save
-        format.html { redirect_to @pattern, notice: 'Pattern was successfully created.' }
+        format.html { redirect_to edit_pattern_path(@pattern), notice: 'Pattern was successfully created.' }
         format.json { render json: @pattern, status: :created, location: @pattern }
       else
         format.html { render action: "new" }

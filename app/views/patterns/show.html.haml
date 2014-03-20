@@ -1,13 +1,5 @@
 %p#notice= notice
 
-= render 'shared/colorpicker'
-
-#pattern
-  - @pattern.rows.each do |row|
-    .row
-      - row.stitches.each do |stitch|
-        .stitch
-
 #info  
   %p
     %b Name:

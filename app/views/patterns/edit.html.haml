@@ -1,5 +1,13 @@
 %h1 Editing pattern
 
+= render 'shared/colorpicker'
+
+#pattern
+  - @pattern.rows.each do |row|
+    .row
+      - row.stitches.each do |stitch|
+        .stitch
+
 = render 'form'
 
 = link_to 'Show', @pattern
