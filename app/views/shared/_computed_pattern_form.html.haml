@@ -1,0 +1,7 @@
+= simple_form_for Pattern.new do |p|
+  .field
+    = p.input :yarn_gauge
+  .field
+    = p.input :width_cm, label: 'Width (cm)'
+  .action
+    = p.button :submit

@@ -1,0 +1,7 @@
+= simple_form_for Pattern.new do |p|
+  .field
+    = p.input :no_of_rows, :as => :hidden, :input_html => { :value => "10" }
+  .field
+    = p.input :no_of_stitches, :as => :hidden, :input_html => { :value => "20" }
+  .action
+    = p.button :submit
