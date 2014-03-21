@@ -1,12 +1,6 @@
 = simple_form_for Pattern.new do |p|
   %p Create Pattern
   %hr
-  #pattern_name
-    .field
-      = p.input :name
-  #status
-    .field
-      = p.input :status, collection: ['public', 'private'], as: :radio_buttons, :input_html => { :value => 'public' }
   #grids
     #default_grid
       %p Default grid (20 x 10)

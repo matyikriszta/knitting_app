@@ -1,9 +1,10 @@
+#colorpicker.nine.columns.alpha
+  = render 'shared/colorpicker'
 #pattern.nine.columns.alpha
   - @pattern.rows.each do |row|
-    .row
+    .pattern_row
       - row.stitches.each do |stitch|
         .stitch
 
 #info.three.columns.omega
-  = render 'shared/colorpicker'
   = render 'form'

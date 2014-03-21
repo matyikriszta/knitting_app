@@ -32,13 +32,36 @@ $(document).ready(function(){
     if(isDown) {        // Only change css if mouse is down
       $bgColor = $('#my_colour_code').css('background-color');
       $(this).css({background: $bgColor});
+      $(this).html($stitchType);
     }
   });
 
   $(".stitch").mousedown(function() {
     $bgColor = $('#my_colour_code').css('background-color');
     $(this).css({background: $bgColor});
+    $(this).html($stitchType);
   });
+
+  // $stitchType = $("#purl").click(function(event) {
+  //   $(this).text();
+  // });
+
+
+  function stitchType(el, type) {
+    $(el).click(
+      function() {
+        $stitchType = type
+      }
+  )};
+
+  function addEventListeners() {
+    $('#purl').each(function(i, el) { stitchType(el, 'P');});
+    $('#knit').each(function(i, el) { stitchType(el, 'K');});
+  };
+
+  // $stitchType = $("#knit").click(function(event) {
+  //   $(this).text();
+  // });
 
   $('#new_pattern').replaceWith('<a href=#pattern_form rel="leanModal" class="button">New Pattern</a>');
 
@@ -60,6 +83,8 @@ $(document).ready(function(){
       masonry: { columnWidth: $container.width() / 5 }
     });
   });
+
+  addEventListeners();
 
 });
 
