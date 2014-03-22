@@ -19,6 +19,8 @@ $(document).ready(function(){
 
   $('.demo2').colorpicker();
 
+  $('.update_pattern')
+
   var isDown = false;   // Tracks status of mouse button
 
   $(document).mousedown(function() {

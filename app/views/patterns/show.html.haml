@@ -1,11 +1,6 @@
 %p#notice= notice
 
-#pattern.nine.columns.alpha
-  %h3= @pattern.name + ' by ' + @pattern.user.try(:name)
-  - @pattern.rows.each do |row|
-    .pattern_row
-      - row.stitches.each do |stitch|
-        .stitch
+= render 'single_pattern'
 
 #info
   %p

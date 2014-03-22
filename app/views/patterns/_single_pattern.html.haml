@@ -1,0 +1,6 @@
+#pattern.nine.columns.alpha
+  %h3= @pattern.name + ' by ' + @pattern.user.try(:name)
+  - @pattern.rows.each do |row|
+    .pattern_row
+      - row.stitches.each do |stitch|
+        .stitch{ :style => "background-color: #{stitch.color}", :data => { :id=>stitch.id} }

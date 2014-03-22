@@ -8,6 +8,9 @@
 
 Category.delete_all
 Difficulty.delete_all
+Pattern.delete_all
+Row.delete_all
+Stitch.delete_all
 
 Category.create name: 'ladies'
 Category.create name: 'men'

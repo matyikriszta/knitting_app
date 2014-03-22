@@ -6,5 +6,5 @@ class Row < ActiveRecord::Base
 
   attr_accessor :no_of_stitches
 
-  attr_accessible :no_of_stitches, :position, :pattern_id
+  attr_accessible :no_of_stitches, :position, :pattern_id, :stitch_attributes
 end
