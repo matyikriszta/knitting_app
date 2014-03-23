@@ -17,9 +17,49 @@
 
 $(document).ready(function(){
 
-  $('.demo2').colorpicker();
+  $('.edit_pattern').on('submit', function(ev) {
+    var url = $(ev.currentTarget).attr('action');
+    ev.preventDefault();
+    data = {};
+    data.pattern = { rows_attributes: [] };
+    rowData = { stitches_attributes: [] };
+    $('#pattern .pattern_row').each(function(index, row) {
+      rowData.id = $(row).attr('id');
+      row.stitches.each(function(index, stitch) {
+        var stitchData = {};
+        stitchdata.id = $(stitch).data('id');
+        stitchdata.bgColor = $(stitch).css('background-color');
+      });
+      rowData.stitches_attributes.push(stitchdata);
+    });
+    data.pattern.rows_attributes.push(rowData);
 
-  $('.update_pattern')
+    $.ajax({
+      url: url, // url for the request
+      type: "PUT", // whether this is a POST or GET request
+      dataType: "json",
+      data: data,
+      success: function(data) { // code to run if the request succeeds
+        console.log(data);
+      },
+    });
+  });
+
+  // data = {};
+  // data.pattern = { rows_attributes: [] };
+  // $('#pattern .pattern_row').each(row);
+  // var rowData = {stitches_attributes: []};
+  // rowdata.id = $(row).data('id');
+  // row.stitches.each(stitch);
+  // var stitchData = {};
+  // stitchdata.id = $('stitch').data('id');e
+  // stitchdata.bgColor = $('stitch').css('background-color');
+  // rowData.stitches_attributes.push(stitchdata);
+  // data.pattern.rows_attributes.push(rowData);
+
+  // { pattern: { rows_attributes: [{ id: 452, stitches_attributes: [{id: 8814, color: "green"}, {id: 8815, color: "yellow"}]}, {id: 453, stitches_attributes: [{id: 8816, color: "yellow"}, {id: 8817, color: "green"}]}]}}
+
+  $('.demo2').colorpicker();
 
   var isDown = false;   // Tracks status of mouse button
 
@@ -44,10 +84,11 @@ $(document).ready(function(){
     $(this).html($stitchType);
   });
 
-  // $stitchType = $("#purl").click(function(event) {
-  //   $(this).text();
-  // });
-
+  $(".stitch").mousedown(function() {
+    $bgColor = $('#my_colour_code').css('background-color');
+    $(this).css({background: $bgColor});
+    $(this).html($stitchType);
+  });
 
   function stitchType(el, type) {
     $(el).click(

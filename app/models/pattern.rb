@@ -12,5 +12,5 @@ class Pattern < ActiveRecord::Base
 
   attr_accessor :no_of_stitches, :yarn_gauge, :width_cm
 
-  attr_accessible :description, :equipment, :instructions, :name, :no_of_rows, :notes, :status, :yarn, :category_id, :difficulty_id, :no_of_stitches, :yarn_gauge, :width_cm, :row_attributes
+  attr_accessible :description, :equipment, :instructions, :name, :no_of_rows, :notes, :status, :yarn, :category_id, :difficulty_id, :no_of_stitches, :yarn_gauge, :width_cm, :rows_attributes
 end

@@ -59,6 +59,7 @@ text-decoration: none;
 #pattern {
   cursor: pointer;
   display: inline-block;
+  min-width: 60%;
   max-width: 75%;
   overflow: hidden;
 }
@@ -79,8 +80,8 @@ text-decoration: none;
 .stitch {
   display: inline-block;
   border: 1px solid black;
-  width: 9%;
-  height: 20px;
+  width: 15px;
+  height: 15px;
 }
 
 .well {
