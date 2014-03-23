@@ -28,7 +28,7 @@ $(document).ready(function(){
       $(row).children().each(function(index, stitch) {
         var stitchData = {};
         stitchData.id = $(stitch).data('id');
-        stitchData.bgColor = $(stitch).css('background-color');
+        stitchData.color = $(stitch).css('background-color');
         rowData.stitches_attributes.push(stitchData);
       });
       data.pattern.rows_attributes.push(rowData);
