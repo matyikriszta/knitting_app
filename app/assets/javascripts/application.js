@@ -18,22 +18,21 @@
 $(document).ready(function(){
 
   $('.edit_pattern').on('submit', function(ev) {
-    var url = $(ev.currentTarget).attr('action');
     ev.preventDefault();
+    url = $(ev.currentTarget).attr('action');
     data = {};
     data.pattern = { rows_attributes: [] };
-    rowData = { stitches_attributes: [] };
     $('#pattern .pattern_row').each(function(index, row) {
+      var rowData = { stitches_attributes: [] };
       rowData.id = $(row).attr('id');
-      row.stitches.each(function(index, stitch) {
+      $(row).children().each(function(index, stitch) {
         var stitchData = {};
-        stitchdata.id = $(stitch).data('id');
-        stitchdata.bgColor = $(stitch).css('background-color');
+        stitchData.id = $(stitch).data('id');
+        stitchData.bgColor = $(stitch).css('background-color');
+        rowData.stitches_attributes.push(stitchData);
       });
-      rowData.stitches_attributes.push(stitchdata);
+      data.pattern.rows_attributes.push(rowData);
     });
-    data.pattern.rows_attributes.push(rowData);
-
     $.ajax({
       url: url, // url for the request
       type: "PUT", // whether this is a POST or GET request
@@ -81,13 +80,13 @@ $(document).ready(function(){
   $(".stitch").mousedown(function() {
     $bgColor = $('#my_colour_code').css('background-color');
     $(this).css({background: $bgColor});
-    $(this).html($stitchType);
+    $(this).html(stitchType);
   });
 
   $(".stitch").mousedown(function() {
     $bgColor = $('#my_colour_code').css('background-color');
     $(this).css({background: $bgColor});
-    $(this).html($stitchType);
+    $(this).html(stitchType);
   });
 
   function stitchType(el, type) {
