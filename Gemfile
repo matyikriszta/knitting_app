@@ -18,7 +18,7 @@ gem 'font-awesome-rails'
 gem 'simple_form'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
-gem 'acts_as_commentable', '3.0.1'
+gem 'acts_as_commentable_with_threading'
 
 group :development, :test do
   gem 'pry-rails'
