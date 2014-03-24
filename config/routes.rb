@@ -6,10 +6,17 @@ KnittingApp::Application.routes.draw do
       put "unlike_show", to: "patterns#unlike_show"
       put "like_index", to: "patterns#like_index"
       put "unlike_index", to: "patterns#unlike_index"
+
+    end
+    collection do
+      get :latest
+      get :popular
+      get :ladies
+      get :gents
+      get :children
     end
   end
-
-  get "patterns/latest", to: "patterns#latest", as: 'latest_patterns'
+ 
 
   devise_for :users
 

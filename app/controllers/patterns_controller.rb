@@ -14,8 +14,22 @@ class PatternsController < ApplicationController
   end
 
   def latest
-    @patterns = Pattern.all
-    @patterns.order('patterns.created_at DESC')
+    @patterns = Pattern.order("created_at DESC").all
+  end
+
+  def popular
+  end
+
+  def ladies
+    @patterns = Pattern.where(category_id: 37)
+  end
+
+  def gents
+    @patterns = Pattern.where(category_id: 38)
+  end
+
+  def children
+    @patterns = Pattern.where(category_id: 39)
   end
 
   # GET /patterns/1
