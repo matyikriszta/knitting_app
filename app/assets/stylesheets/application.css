@@ -49,19 +49,25 @@ a {
 text-decoration: none;
 }
 
-#info {
-  display: inline-block;
-  background: #eee;
-  max-width: 20%;
-  vertical-align: top;
-}
-
 #pattern {
   cursor: pointer;
   display: inline-block;
+  width: 70%;
   min-width: 60%;
-  max-width: 75%;
+  min-height: 100px;
   overflow: hidden;
+}
+
+#info {
+  display: inline-block;
+  float: right;
+  width: 26%;
+  vertical-align: top;
+}
+
+#save_pattern_button {
+  display: inline-block;
+  width: 70%;
 }
 
 .pattern_row {

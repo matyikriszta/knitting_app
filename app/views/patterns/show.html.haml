@@ -1,29 +1,30 @@
 %p#notice= notice
 
-= render 'single_pattern'
+%h3= @pattern.name
+%p= @pattern.user.try(:name)
+
+#pattern
+  - @pattern.rows.each do |row|
+    .pattern_row{ id: row.id }
+      - row.stitches.each do |stitch|
+        .stitch{ :style => "background-color: #{stitch.color}", :data => { id: stitch.id} }
 
 #info
-  %p
-    %b Description:
-    = @pattern.description
-  %p
-    %b Difficulty:
-    = @pattern.difficulty.try(:name)
+  %h4= @pattern.description
+  %h5 Difficulty:
+  = @pattern.difficulty.try(:name)
+  %h5 Category:
+  = @pattern.category.try(:name)
   %hr
-    %h5 Instructions:
-    %p= @pattern.instructions
-  %p
-    %b Notes:
+  %h5 Instructions:
+  %p= @pattern.instructions
+  - if @pattern.user_id == current_user.id
+    %h5 Notes:
     = @pattern.notes
-  %p
-    %b Yarn:
-    = @pattern.yarn
-  %p
-    %b Equipment:
-    = @pattern.equipment
-  %p
-    %b Category:
-    = @pattern.category.try(:name)
+  %h5 Yarn:
+  = @pattern.yarn
+  %h5 Equipment:
+  = @pattern.equipment
 
 #buttons
   = link_to like_show_pattern_path(@pattern), method: :put do

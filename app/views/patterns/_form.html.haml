@@ -1,28 +1,29 @@
-= simple_form_for @pattern do |p|
-  - if @pattern.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@pattern.errors.count, "error")} prohibited this pattern from being saved:"
-      %ul
-        - @pattern.errors.full_messages.each do |msg|
-          %li= msg
+#info
+  = simple_form_for @pattern do |p|
+    - if @pattern.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@pattern.errors.count, "error")} prohibited this pattern from being saved:"
+        %ul
+          - @pattern.errors.full_messages.each do |msg|
+            %li= msg
 
-  .field
-    = p.input :name
-  .field
-    = p.input :status, collection: ['public', 'private'], as: :radio_buttons 
-  .field
-    = p.association :difficulty
-  .field
-    = p.input :description
-  .field
-    = p.input :instructions, as: :text
-  .field
-    = p.input :notes, as: :text
-  .field
-    = p.input :yarn
-  .field
-    = p.input :equipment
-  .field
-    = p.association :category
-  .actions
-    = p.button :submit, id: 'update_pattern'
+    .field
+      = p.input :name
+    .field
+      = p.input :status, collection: ['public', 'private'], as: :radio_buttons 
+    .field
+      = p.association :difficulty
+    .field
+      = p.input :description
+    .field
+      = p.input :instructions, as: :text
+    .field
+      = p.input :notes, as: :text
+    .field
+      = p.input :yarn
+    .field
+      = p.input :equipment
+    .field
+      = p.association :category
+    .actions
+      = p.button :submit

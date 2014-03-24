@@ -17,7 +17,7 @@
 
 $(document).ready(function(){
 
-  $('.edit_pattern').on('submit', function(ev) {
+  $('.button_to').on('submit', function(ev) {
     ev.preventDefault();
     url = $(ev.currentTarget).attr('action');
     data = {};
