@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140317195504) do
+ActiveRecord::Schema.define(:version => 20140324182105) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -36,12 +36,22 @@ ActiveRecord::Schema.define(:version => 20140317195504) do
     t.string   "yarn"
     t.string   "equipment"
     t.integer  "category_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
     t.integer  "difficulty_id"
     t.string   "sequence"
+    t.integer  "cached_votes_total",    :default => 0
+    t.integer  "cached_votes_score",    :default => 0
+    t.integer  "cached_votes_up",       :default => 0
+    t.integer  "cached_votes_down",     :default => 0
+    t.integer  "cached_weighted_score", :default => 0
   end
 
+  add_index "patterns", ["cached_votes_down"], :name => "index_patterns_on_cached_votes_down"
+  add_index "patterns", ["cached_votes_score"], :name => "index_patterns_on_cached_votes_score"
+  add_index "patterns", ["cached_votes_total"], :name => "index_patterns_on_cached_votes_total"
+  add_index "patterns", ["cached_votes_up"], :name => "index_patterns_on_cached_votes_up"
+  add_index "patterns", ["cached_weighted_score"], :name => "index_patterns_on_cached_weighted_score"
   add_index "patterns", ["category_id"], :name => "index_patterns_on_category_id"
   add_index "patterns", ["user_id"], :name => "index_patterns_on_user_id"
 
