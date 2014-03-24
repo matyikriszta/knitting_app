@@ -13,7 +13,8 @@ KnittingApp::Application.routes.draw do
       get :popular
       get :ladies
       get :gents
-      get :children
+      get :kids
+      get :holiday
     end
   end
  

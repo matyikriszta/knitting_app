@@ -29,8 +29,12 @@ class PatternsController < ApplicationController
     @patterns = Pattern.where(category_id: 38)
   end
 
-  def children
+  def kids
     @patterns = Pattern.where(category_id: 39)
+  end
+
+  def holiday
+    @patterns = Pattern.where(category_id: 41)
   end
 
   # GET /patterns/1
