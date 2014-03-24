@@ -44,20 +44,6 @@ $(document).ready(function(){
     });
   });
 
-  // data = {};
-  // data.pattern = { rows_attributes: [] };
-  // $('#pattern .pattern_row').each(row);
-  // var rowData = {stitches_attributes: []};
-  // rowdata.id = $(row).data('id');
-  // row.stitches.each(stitch);
-  // var stitchData = {};
-  // stitchdata.id = $('stitch').data('id');e
-  // stitchdata.bgColor = $('stitch').css('background-color');
-  // rowData.stitches_attributes.push(stitchdata);
-  // data.pattern.rows_attributes.push(rowData);
-
-  // { pattern: { rows_attributes: [{ id: 452, stitches_attributes: [{id: 8814, color: "green"}, {id: 8815, color: "yellow"}]}, {id: 453, stitches_attributes: [{id: 8816, color: "yellow"}, {id: 8817, color: "green"}]}]}}
-
   $('.demo2').colorpicker();
 
   var isDown = false;   // Tracks status of mouse button
@@ -101,13 +87,13 @@ $(document).ready(function(){
     $('#knit').each(function(i, el) { stitchType(el, 'K');});
   };
 
-  // $stitchType = $("#knit").click(function(event) {
-  //   $(this).text();
-  // });
-
-  $('#new_pattern').replaceWith('<a href=#pattern_form rel="leanModal" class="button">New Pattern</a>');
+  $('#new_pattern').replaceWith('<a href=#pattern_form rel="leanModal" class="glyphicon glyphicon-plus-sign"></a>');
 
   $("a[rel=leanModal]").leanModal();
+
+  $("#filter_dropdown").click(function(){
+    $("#filter").toggleClass("hidden");
+  });
 
   var $container = $('#container')
   // initialize Isotope

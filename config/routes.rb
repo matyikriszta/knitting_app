@@ -9,6 +9,8 @@ KnittingApp::Application.routes.draw do
     end
   end
 
+  get "patterns/latest", to: "patterns#latest", as: 'latest_patterns'
+
   devise_for :users
 
   resources :categories

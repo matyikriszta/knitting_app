@@ -16,11 +16,21 @@
 %h2 Projects in progress
 - @user.patterns.each do |pattern|
   - if pattern.user_id == current_user.id
-    #pattern_card
-      %p= link_to pattern.name, pattern
-      %p= pattern.difficulty.try(:name)
-      %p= pattern.description
-      %p= pattern.instructions
-      %p= pattern.yarn
-      %p= pattern.equipment
-      %p= pattern.category.try(:name)
+    .pattern_card
+      .pattern_preview
+        - pattern.rows[0..6].each do |row|
+          .pattern_row{ id: row.id }
+            - row.stitches[0..11].each do |stitch|
+              .stitch{ :style => "background-color: #{stitch.color}", :data => { id: stitch.id} }
+      .pattern_description
+        %p= link_to pattern.name, pattern
+        %p= pattern.difficulty.try(:name)
+        %p= pattern.description
+        %p= pattern.yarn
+        %p= pattern.equipment
+        %p= pattern.category.try(:name)
+        - unless pattern.user_id == current_user.id
+          = link_to like_index_pattern_path(pattern), method: :put do
+            %i.fa.fa-heart.fa-2x
+          - if pattern.likes.size > 0
+            = pattern.likes.size

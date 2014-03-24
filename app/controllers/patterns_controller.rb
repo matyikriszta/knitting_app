@@ -4,11 +4,18 @@ class PatternsController < ApplicationController
   # GET /patterns.json
   def index
     @patterns = Pattern.all
+    @q = Pattern.search(params[:q])
+    @patterns = @q.result(distinct: true)
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @patterns }
     end
+  end
+
+  def latest
+    @patterns = Pattern.all
+    @patterns.order('patterns.created_at DESC')
   end
 
   # GET /patterns/1
