@@ -18,6 +18,7 @@ class PatternsController < ApplicationController
   end
 
   def popular
+    @patterns = Pattern.order("cached_votes_total DESC").all
   end
 
   def ladies
