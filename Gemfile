@@ -16,8 +16,9 @@ gem 'rmagick'
 gem 'acts_as_votable', '~> 0.8.0'
 gem 'font-awesome-rails'
 gem 'simple_form'
-gem 'wkhtmltopdf-binary'
 gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+gem 'acts_as_commentable', '3.0.1'
 
 group :development, :test do
   gem 'pry-rails'

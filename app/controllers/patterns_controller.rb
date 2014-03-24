@@ -139,4 +139,26 @@ class PatternsController < ApplicationController
     redirect_to patterns_path
   end
 
+  def pdf
+    format.pdf do
+      @example_text = "some text"
+      render :pdf => "pattern_name",
+             :template => 'patterns/show.pdf.erb',
+             :layout => 'pdf',
+             :footer => {
+                :center => "Center",
+                :left => "Left",
+                :right => "Right"
+             }
+           end
+  end
+
+  def download 
+    html = render_to_string(:action => :show, :layout => "pdf_layout.html") 
+    pdf = WickedPdf.new.pdf_from_string(html) 
+    send_data(pdf, 
+      :filename    => "my_pdf_name.pdf", 
+      :disposition => 'attachment') 
+  end
+
 end

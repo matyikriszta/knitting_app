@@ -6,7 +6,6 @@ KnittingApp::Application.routes.draw do
       put "unlike_show", to: "patterns#unlike_show"
       put "like_index", to: "patterns#like_index"
       put "unlike_index", to: "patterns#unlike_index"
-
     end
     collection do
       get :latest
@@ -17,8 +16,9 @@ KnittingApp::Application.routes.draw do
       get :holiday
     end
   end
- 
 
+  get "patterns/:id", to: "patterns#pdf", as: 'pdf'
+ 
   devise_for :users
 
   resources :categories
