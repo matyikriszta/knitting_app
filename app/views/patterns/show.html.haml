@@ -38,4 +38,9 @@
   / = link_to 'Create PDF document', pdf_path(@pattern, :format => :pdf)
   = link_to 'Back', patterns_path
 
+.comments
+  %h2 Comments
+  = render :partial => "comments/form", :locals => { :commentable => @pattern }
+  = render :partial => 'comments/comment', :collection => @comments, :as => :comment
+
   

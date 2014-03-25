@@ -41,11 +41,7 @@ class PatternsController < ApplicationController
   # GET /patterns/1.json
   def show
     @pattern = Pattern.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @pattern }
-    end
+    @comments = @pattern.comment_threads
   end
 
   # GET /patterns/new
