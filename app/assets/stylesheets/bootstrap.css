@@ -277,7 +277,7 @@ body {
   font-size: 14px;
   line-height: 1.42857143;
   color: #333;
-  background-color: #e5e5e5;
+  background-color: #fff;
 }
 input,
 button,
@@ -288,13 +288,13 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: #428bca;
+  color: #333333;
   text-decoration: none;
 }
 a:hover,
 a:focus {
   color: #2a6496;
-  text-decoration: underline;
+  text-decoration: none;
 }
 a:focus {
   outline: thin dotted;
