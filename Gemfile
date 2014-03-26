@@ -5,7 +5,6 @@ gem 'rails', '3.2.17'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
 gem 'devise'
 gem 'omniauth-google-oauth2'
 gem 'haml-rails'
@@ -21,6 +20,7 @@ gem 'wkhtmltopdf-binary'
 gem 'acts_as_commentable_with_threading'
 
 group :development, :test do
+  gem 'sqlite3'
   gem 'pry-rails'
   gem 'pry-debugger'
   gem 'pry-stack_explorer'
@@ -32,6 +32,9 @@ group :development, :test do
   gem 'faker'
 end
 
+group :production do
+  gem 'pg'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
