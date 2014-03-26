@@ -1,8 +1,0 @@
-#pattern
-  - @pattern.rows.each do |row|
-    .pattern_row{ id: row.id }
-      - row.stitches.each do |stitch|
-        .stitch{ :style => "background-color: #{stitch.color}", :data => { id: stitch.id} }
-  = button_to 'Save pattern', @pattern, remote: true, method: :update
-
-
