@@ -11,13 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140325153541) do
+ActiveRecord::Schema.define(:version => 20140326160812) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "colors", :force => true do |t|
+    t.integer  "pattern_id"
+    t.string   "color"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "colors", ["pattern_id"], :name => "index_colors_on_pattern_id"
 
   create_table "comments", :force => true do |t|
     t.integer  "commentable_id",   :default => 0

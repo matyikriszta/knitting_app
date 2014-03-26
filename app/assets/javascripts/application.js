@@ -76,32 +76,7 @@ $(document).ready(function(){
     $(this).html(stitchType);
   });
 
-  $("#color1").mousedown(function() {
-    $bgColor = $('#my_colour_code').css('background-color');
-    $(this).css({background: $bgColor});
-  });
-
-  $("#color2").mousedown(function() {
-    $bgColor = $('#my_colour_code').css('background-color');
-    $(this).css({background: $bgColor});
-  });
-
-  $("#color3").mousedown(function() {
-    $bgColor = $('#my_colour_code').css('background-color');
-    $(this).css({background: $bgColor});
-  });
-
-  $("#color4").mousedown(function() {
-    $bgColor = $('#my_colour_code').css('background-color');
-    $(this).css({background: $bgColor});
-  });
-
-  $("#color5").mousedown(function() {
-    $bgColor = $('#my_colour_code').css('background-color');
-    $(this).css({background: $bgColor});
-  });
-
-  $("#color").mousedown(function() {
+  $(".color_swatch").mousedown(function() {
     $bgColor = $('#my_colour_code').css('background-color');
     $(this).css({background: $bgColor});
   });

@@ -64,6 +64,7 @@ class PatternsController < ApplicationController
   # POST /patterns.json
   def create
     @pattern = Pattern.create(params[:pattern])
+    @pattern.colors = Color.get_default_colors
     @pattern.user = current_user
     @pattern.no_of_rows.to_i.times do
       @row = @pattern.rows.build

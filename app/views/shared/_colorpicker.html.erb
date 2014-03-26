@@ -4,12 +4,9 @@
 </div>
 <h5>Palette</h5>
 
-<div id="color1"></div>
-<div id="color2"></div>
-<div id="color3"></div>
-<div id="color4"></div>
-<div id="color5"></div>
-<div id="color6"></div>
+<% @pattern.colors.each do |color| %>
+  <div class="color_swatch" style="background-color: <%= color.color %>"></div>
+<% end %>
 
 
 

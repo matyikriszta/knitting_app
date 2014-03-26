@@ -22,7 +22,6 @@ class Pattern < ActiveRecord::Base
     if yarn_gauge && width_inch
       gauge = yarn_gauge.to_i
       width = width_inch.to_i
-      puts "Defining the number of stitches"
       @no_of_stitches = gauge * width
       self.no_of_rows.to_i
       self.no_of_stitches.to_i

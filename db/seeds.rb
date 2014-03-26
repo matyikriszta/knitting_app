@@ -11,6 +11,7 @@ Difficulty.delete_all
 Pattern.delete_all
 Row.delete_all
 Stitch.delete_all
+Color.delete_all
 
 Category.create name: 'ladies'
 Category.create name: 'men'
@@ -28,4 +29,11 @@ User.create name:'Kriszta', email: 'kriszta@kriszta.com', password: 'password', 
 User.create name:'Tim', email: 'tim@tim.com', password: 'password', role: 'registered'
 User.create name:'Nico', email: 'nico@nico.com', password: 'password', role: 'registered'
 User.create name:'Max', email: 'max@max.com', password: 'password', role: 'registered'
+
+Color.create color: "red"
+Color.create color: "blue"
+Color.create color: "yellow"
+Color.create color: "green"
+Color.create color: "white"
+Color.create color: "black"
 
