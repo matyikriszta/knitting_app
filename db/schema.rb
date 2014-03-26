@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140326160812) do
+ActiveRecord::Schema.define(:version => 20140326174323) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20140326160812) do
     t.string   "color"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.boolean  "default"
   end
 
   add_index "colors", ["pattern_id"], :name => "index_colors_on_pattern_id"

@@ -1,4 +1,4 @@
-n# This file should contain all the record creation needed to seed the database with its default values.
+# This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
 # Examples:
@@ -30,10 +30,10 @@ User.create name:'Tim', email: 'tim@tim.com', password: 'password', role: 'regis
 User.create name:'Nico', email: 'nico@nico.com', password: 'password', role: 'registered'
 User.create name:'Max', email: 'max@max.com', password: 'password', role: 'registered'
 
-Color.create color: "red"
-Color.create color: "blue"
-Color.create color: "yellow"
-Color.create color: "green"
-Color.create color: "white"
-Color.create color: "black"
+Color.create color: "red", default: true
+Color.create color: "blue", default: true
+Color.create color: "yellow", default: true
+Color.create color: "green", default: true
+Color.create color: "white", default: true
+Color.create color: "black", default: true
 
