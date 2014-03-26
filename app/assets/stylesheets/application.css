@@ -156,11 +156,12 @@ label.radio {
   border-radius: 6px;
 }
 
-#color1, #color2, #color3, #color4 {
+#color1, #color2, #color3, #color4, #color5, #color6 {
   display: inline-block;
+  margin: 0 8px 0 0; 
   width: 40px;
   height: 40px;
-  border: 1px solid black;
+  border: 1px solid #e5e5e5;
   border-radius: 4px;
 }
 
