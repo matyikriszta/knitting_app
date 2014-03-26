@@ -10,10 +10,6 @@
     .field
       = p.input :name
     .field
-      = p.input :status, collection: ['public', 'private'], as: :radio_buttons 
-    .field
-      = p.association :difficulty
-    .field
       = p.input :description
     .field
       = p.input :instructions, as: :text
@@ -24,6 +20,10 @@
     .field
       = p.input :equipment
     .field
-      = p.association :category
+      = p.association :difficulty, :include_blank => false
+    .field
+      = p.association :category, :include_blank => false
+    .field
+      = p.input :status, collection: ['public', 'private'], as: :radio_buttons, label: false 
     .actions
       = p.button :submit

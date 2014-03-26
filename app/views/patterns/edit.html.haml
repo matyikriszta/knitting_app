@@ -7,12 +7,12 @@
 #tabs
   %ul
     %li
-      %a{:href => "#tabs-1"} Proin dolor
+      %a{:href => "#tabs-1"} Pattern
     %li
-      %a{:href => "#tabs-2"} Proin dolor
+      %a{:href => "#tabs-2"} Details
   #tabs-1
     = render 'shared/colorpicker'
 
-    = button_to 'Save pattern', @pattern, remote: true, method: :update
+    = button_to 'Save pattern', @pattern, remote: true, method: :update, class: 'btn'
   #tabs-2
     = render 'form'

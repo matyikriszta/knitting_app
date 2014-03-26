@@ -6,7 +6,7 @@
           .pattern_row{ id: row.id }
             - row.stitches[0..11].each do |stitch|
               .stitch{ :style => "background-color: #{stitch.color}", :data => { id: stitch.id} }
-      .pattern_description
+      .pattern_description_index
         %p= link_to pattern.name, pattern
         = link_to like_index_pattern_path(pattern), method: :put do
           %i.fa.fa-heart
