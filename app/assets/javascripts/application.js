@@ -11,6 +11,7 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery-ui-1.10.4.custom
 //= require bootstrap-colorpicker
 //= require jquery_ujs
 //= require_tree .
@@ -114,6 +115,10 @@ $(document).ready(function(){
       // update columnWidth to a percentage of container width
       masonry: { columnWidth: $container.width() / 5 }
     });
+  });
+
+  $(function() {
+    $( "#tabs" ).tabs();
   });
 
   addEventListeners();
