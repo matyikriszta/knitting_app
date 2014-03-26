@@ -8,6 +8,7 @@ class Pattern < ActiveRecord::Base
   has_many :rows
   has_many :stitches, through: :rows
   has_many :images
+  has_many :colors
 
   accepts_nested_attributes_for :rows, allow_destroy: true
 
