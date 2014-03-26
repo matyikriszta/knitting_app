@@ -17,7 +17,6 @@
  body { padding-top: 70px; }
 
 #main {
-  border: 1px solid black;
   width: 1240px;
   margin: 0 auto;
   margin-top: 20px;
@@ -90,25 +89,24 @@ input#q_name_or_description_cont {
   background-color: #fafafa;
 }
 
+/*------------------------------- PATTERN EDIT --------------------------------*/
+
 #pattern {
   cursor: pointer;
   display: inline-block;
-  width: 70%;
-  min-width: 60%;
+  width: 68%;
   min-height: 100px;
-  overflow: hidden;
-}
-
-#info {
-  display: inline-block;
-  float: right;
-  width: 26%;
   vertical-align: top;
+  overflow: hidden;
 }
 
 #save_pattern_button {
   display: inline-block;
   width: 70%;
+}
+
+#info {
+  width: 300px;
 }
 
 .pattern_row {
@@ -131,7 +129,7 @@ input#q_name_or_description_cont {
   height: 15px;
 }
 
-.well {
+.colorpicker-element {
   width: 300px;
 }
 

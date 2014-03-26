@@ -1,14 +1,18 @@
+#pattern
+  - @pattern.rows.each do |row|
+    .pattern_row{ id: row.id }
+      - row.stitches.each do |stitch|
+        .stitch{ :style => "background-color: #{stitch.color}", :data => { id: stitch.id} }
+
 #tabs
   %ul
     %li
       %a{:href => "#tabs-1"} Proin dolor
     %li
       %a{:href => "#tabs-2"} Proin dolor
-    %li
-      %a{:href => "#tabs-3"} Aenean lacinia
   #tabs-1
     = render 'shared/colorpicker'
+
+    = button_to 'Save pattern', @pattern, remote: true, method: :update
   #tabs-2
     = render 'form'
-
-= render 'single_pattern'
