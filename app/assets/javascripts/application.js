@@ -22,7 +22,15 @@ $(document).ready(function(){
     ev.preventDefault();
     url = $(ev.currentTarget).attr('action');
     data = {};
-    data.pattern = { rows_attributes: [] };
+    data.pattern = { rows_attributes: [], colors_attributes: [] };
+    
+    $('.color_swatch').each(function(index, color) {
+      var colorData = {};
+      colorData.id = $(color).data('id');
+      colorData.color = $(color).css('background-color');
+      data.pattern.colors_attributes.push(colorData);
+    });
+
     $('#pattern .pattern_row').each(function(index, row) {
       var rowData = { stitches_attributes: [] };
       rowData.id = $(row).attr('id');
@@ -40,9 +48,10 @@ $(document).ready(function(){
       dataType: "json",
       data: data,
       success: function(data) { // code to run if the request succeeds
-        console.log(data);
+        window.location.href = '/patterns/' + $('#pattern').data('id') + '/edit';
       },
     });
+    return false;
   });
 
   $('.demo2').colorpicker();

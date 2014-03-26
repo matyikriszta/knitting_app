@@ -1,4 +1,4 @@
-= simple_form_for Comment.new do |c|
+= simple_form_for Comment.new, :remote => true do |c|
   = hidden_field_tag :pattern_id, @pattern.id
   = c.input :body, as: :text, label: false
   = c.button :submit

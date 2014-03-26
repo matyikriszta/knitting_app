@@ -11,12 +11,13 @@ class Pattern < ActiveRecord::Base
   has_many :colors
 
   accepts_nested_attributes_for :rows, allow_destroy: true
+  accepts_nested_attributes_for :colors, allow_destroy: true
 
   before_validation :prepare_pattern
 
   attr_accessor :no_of_stitches, :yarn_gauge, :width_inch
 
-  attr_accessible :description, :equipment, :instructions, :name, :no_of_rows, :notes, :status, :yarn, :category_id, :difficulty_id, :no_of_stitches, :yarn_gauge, :width_inch, :rows_attributes
+  attr_accessible :description, :equipment, :instructions, :name, :no_of_rows, :notes, :status, :yarn, :category_id, :difficulty_id, :no_of_stitches, :yarn_gauge, :width_inch, :rows_attributes, :colors_attributes
 
   def prepare_pattern
     if yarn_gauge && width_inch

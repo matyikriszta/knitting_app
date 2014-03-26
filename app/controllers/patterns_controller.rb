@@ -22,19 +22,19 @@ class PatternsController < ApplicationController
   end
 
   def ladies
-    @patterns = Pattern.where(category_id: 37)
+    @patterns = Pattern.where(category_id: 49)
   end
 
   def gents
-    @patterns = Pattern.where(category_id: 38)
+    @patterns = Pattern.where(category_id: 50)
   end
 
   def kids
-    @patterns = Pattern.where(category_id: 39)
+    @patterns = Pattern.where(category_id: 51)
   end
 
   def holiday
-    @patterns = Pattern.where(category_id: 41)
+    @patterns = Pattern.where(category_id: 53)
   end
 
   # GET /patterns/1
@@ -64,11 +64,12 @@ class PatternsController < ApplicationController
   # POST /patterns.json
   def create
     @pattern = Pattern.create(params[:pattern])
-    @pattern.colors = Color.default
+    6.times do
+      @pattern.colors.build
+    end
     @pattern.user = current_user
     @pattern.no_of_rows.to_i.times do
       @row = @pattern.rows.build
-      puts "About to build all our stitches"
       @pattern.no_of_stitches.to_i.times do
         @row.stitches.build
       end
