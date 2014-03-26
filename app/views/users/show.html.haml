@@ -1,36 +1,17 @@
 %p#notice= notice
 
-%p
-  = @user.name
-%p
-  = image_tag(@user.user_image.profile.url)
-%p
-  %b Membership:
-  = @user.membership
+.profile
+  .profile_img
+    = image_tag(@user.user_image.profile.url)
+    = button_to 'Edit', edit_user_path(@user), class: 'hidden', id: 'edit_img'
+  .profile_details
+    %h2= @user.name
+    %p= @user.description
 
-= link_to 'Edit', edit_user_path(@user)
-\|
 = current_user.find_liked_items.count
 = link_to 'Likes', user_likes_path(@user)
 
-%h2 Projects in progress
-- @user.patterns.each do |pattern|
-  - if pattern.user_id == current_user.id
-    .pattern_card
-      .pattern_preview
-        - pattern.rows[0..6].each do |row|
-          .pattern_row{ id: row.id }
-            - row.stitches[0..11].each do |stitch|
-              .stitch{ :style => "background-color: #{stitch.color}", :data => { id: stitch.id} }
-      .pattern_description
-        %p= link_to pattern.name, pattern
-        %p= pattern.difficulty.try(:name)
-        %p= pattern.description
-        %p= pattern.yarn
-        %p= pattern.equipment
-        %p= pattern.category.try(:name)
-        - unless pattern.user_id == current_user.id
-          = link_to like_index_pattern_path(pattern), method: :put do
-            %i.fa.fa-heart.fa-2x
-          - if pattern.likes.size > 0
-            = pattern.likes.size
+- if current_user == @user
+  = render 'private_profile'
+- else
+  = render 'public_profile'

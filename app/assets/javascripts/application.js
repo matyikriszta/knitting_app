@@ -87,12 +87,16 @@ $(document).ready(function(){
     $('#knit').each(function(i, el) { stitchType(el, 'K');});
   };
 
-  $('#new_pattern').replaceWith('<a href=#pattern_form rel="leanModal" class="glyphicon glyphicon-plus-sign"></a>');
+  $('#new_pattern').replaceWith('<a href=#pattern_form rel="leanModal"><i class="fa fa-plus fa-2x"></i></a>');
 
   $("a[rel=leanModal]").leanModal();
 
   $("#filter_dropdown").click(function(){
     $("#filter").toggleClass("hidden");
+  });
+
+  $(".profile_img").hover(function(){
+    $("#edit_img").toggleClass("hidden");
   });
 
   var $container = $('#container')

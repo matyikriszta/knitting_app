@@ -63,10 +63,11 @@ class PatternsController < ApplicationController
   # POST /patterns
   # POST /patterns.json
   def create
-    @pattern = Pattern.new(params[:pattern])
+    @pattern = Pattern.create(params[:pattern])
     @pattern.user = current_user
     @pattern.no_of_rows.to_i.times do
       @row = @pattern.rows.build
+      puts "About to build all our stitches"
       @pattern.no_of_stitches.to_i.times do
         @row.stitches.build
       end

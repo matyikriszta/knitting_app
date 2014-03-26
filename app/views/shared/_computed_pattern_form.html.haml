@@ -2,6 +2,8 @@
   .field
     = p.input :yarn_gauge
   .field
-    = p.input :width_cm, label: 'Width (cm)'
+    = p.input :width_inch, label: 'Width (in inches)'
+  .field
+    = p.input :no_of_rows, as: :string, label: 'No. of rows'
   .action
     = p.button :submit

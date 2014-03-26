@@ -1,4 +1,4 @@
-- @patterns.each do |pattern|
+- @user.patterns.each do |pattern|
   - if pattern.status == "public"
     .pattern_card
       .pattern_preview
@@ -9,7 +9,7 @@
       .pattern_description
         %p= link_to pattern.name, pattern
         = link_to like_index_pattern_path(pattern), method: :put do
-          %i.fa.fa-heart
+          %i.fa.fa-heart.fa-lg
         - if pattern.likes.size > 0
           = pattern.likes.size
         %p= link_to(image_tag(pattern.user.user_image.thumb.url), user_path(pattern.user_id))
