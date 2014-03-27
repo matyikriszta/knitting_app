@@ -1,5 +1,6 @@
 class PatternsController < ApplicationController
   before_filter :authenticate_user!
+  load_and_authorize_resource
   # GET /patterns
   # GET /patterns.json
   def index
@@ -22,19 +23,19 @@ class PatternsController < ApplicationController
   end
 
   def ladies
-    @patterns = Pattern.where(category_id: 49)
+    @patterns = Pattern.where(category_id: 55)
   end
 
   def gents
-    @patterns = Pattern.where(category_id: 50)
+    @patterns = Pattern.where(category_id: 56)
   end
 
   def kids
-    @patterns = Pattern.where(category_id: 51)
+    @patterns = Pattern.where(category_id: 57)
   end
 
   def holiday
-    @patterns = Pattern.where(category_id: 53)
+    @patterns = Pattern.where(category_id: 59)
   end
 
   # GET /patterns/1
@@ -138,26 +139,31 @@ class PatternsController < ApplicationController
     redirect_to patterns_path
   end
 
-  def pdf
-    format.pdf do
-      @example_text = "some text"
-      render :pdf => "pattern_name",
-             :template => 'patterns/show.pdf.erb',
-             :layout => 'pdf',
-             :footer => {
-                :center => "Center",
-                :left => "Left",
-                :right => "Right"
-             }
-           end
+  def voted_for
+    @pattern = Pattern.find(params[:id])
+    @user.voted_for? @pattern
   end
 
-  def download 
-    html = render_to_string(:action => :show, :layout => "pdf_layout.html") 
-    pdf = WickedPdf.new.pdf_from_string(html) 
-    send_data(pdf, 
-      :filename    => "my_pdf_name.pdf", 
-      :disposition => 'attachment') 
-  end
+  # def pdf
+  #   format.pdf do
+  #     @example_text = "some text"
+  #     render :pdf => "pattern_name",
+  #            :template => 'patterns/show.pdf.erb',
+  #            :layout => 'pdf',
+  #            :footer => {
+  #               :center => "Center",
+  #               :left => "Left",
+  #               :right => "Right"
+  #            }
+  #          end
+  # end
+
+  # def download 
+  #   html = render_to_string(:action => :show, :layout => "pdf_layout.html") 
+  #   pdf = WickedPdf.new.pdf_from_string(html) 
+  #   send_data(pdf, 
+  #     :filename    => "my_pdf_name.pdf", 
+  #     :disposition => 'attachment') 
+  # end
 
 end

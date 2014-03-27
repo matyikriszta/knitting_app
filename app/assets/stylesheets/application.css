@@ -217,6 +217,21 @@ label.radio {
   width: 100%;
 }
 
+/*------------------------------- PATTERN SHOW --------------------------------*/
+
+#info_show {
+  display: inline-block;
+}
+
+.comments {
+  margin-bottom: 60px;
+}
+
+#comment_body {
+  width: 300px;
+  height: 60px;
+}
+
 /*------------------------------- PATTERN CREATION POPUP --------------------------------*/
 
 #lean_overlay {

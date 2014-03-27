@@ -9,7 +9,7 @@
       - row.stitches.each do |stitch|
         .stitch{ :style => "background-color: #{stitch.color}", :data => { id: stitch.id} }
 
-#info
+#info_show
   %h4= @pattern.description
   %h5 Difficulty:
   = @pattern.difficulty.try(:name)
@@ -26,17 +26,15 @@
   %h5 Equipment:
   = @pattern.equipment
 
-#buttons
+#share_buttons
   = link_to like_show_pattern_path(@pattern), method: :put do
     %i.fa.fa-heart.fa-3x
   = link_to "Unlike", unlike_show_pattern_path(@pattern), method: :put
-  \|
-  = link_to 'Destroy', @pattern, :method => :delete, :data => { :confirm => 'Are you sure?' }
-  \|
-  = link_to 'Edit', edit_pattern_path(@pattern)
-  \|
-  / = link_to 'Create PDF document', pdf_path(@pattern, :format => :pdf)
-  = link_to 'Back', patterns_path
+#manage_buttons
+  - if current_user.id == @pattern.user_id
+    = link_to 'Delete pattern', @pattern, :method => :delete, :data => { :confirm => 'Are you sure?' }
+    \|
+    = link_to 'Edit', edit_pattern_path(@pattern)
 
 .comments
   %h3 Comments

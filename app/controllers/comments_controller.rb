@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_filter :authenticate_user!
+  load_and_authorize_resource
 
   def create
     @pattern = Pattern.find(params[:pattern_id])
