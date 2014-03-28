@@ -33,7 +33,11 @@ KnittingApp::Application.routes.draw do
 
   get "users/:id/likes", to: "users#likes", as: 'user_likes'
 
-  root to: 'static#index'
+  authenticated do
+  root :to => 'patterns#index', as: :authenticated
+  end
+
+  root :to => 'static#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
