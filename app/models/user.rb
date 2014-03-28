@@ -17,12 +17,12 @@ class User < ActiveRecord::Base
   before_validation :set_role_to_registered
 
   def role?(role_to_compare)
-    self.role.to_s == role_to_compare.to_s
+    @role.to_s == role_to_compare.to_s
   end 
 
   private
   def set_role_to_registered
-    self.role ||= "registered"
+    @role ||= "registered"
   end
 
 end
