@@ -64,26 +64,28 @@ class PatternsController < ApplicationController
   # POST /patterns
   # POST /patterns.json
   def create
-    @pattern = Pattern.create(params[:pattern])
+    pattern = Pattern.create(params[:pattern])
+    ActiveRecord::Base.transaction do
     6.times do
-      @pattern.colors.build
+      Color.create!(pattern_id: pattern.id)
     end
-    @pattern.user = current_user
-    @pattern.no_of_rows.to_i.times do
-      @row = @pattern.rows.build
-      @pattern.no_of_stitches.to_i.times do
-        @row.stitches.build
+    pattern.user = current_user
+    pattern.no_of_rows.to_i.times do
+      row = Row.create!(pattern_id: pattern.id)
+      pattern.no_of_stitches.to_i.times do
+        Stitch.create!(row_id: row.id)
       end
+    end
     end
 
     respond_to do |format|
-      if @pattern.save
-        format.html { redirect_to edit_pattern_path(@pattern), notice: 'Pattern was successfully created.' }
-        format.json { render json: @pattern, status: :created, location: @pattern }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @pattern.errors, status: :unprocessable_entity }
-      end
+        if pattern.save
+          format.html { redirect_to edit_pattern_path(pattern), notice: 'Pattern was successfully created.' }
+          format.json { render json: pattern, status: :created, location: pattern }
+        else
+          format.html { render action: "new" }
+          format.json { render json: pattern.errors, status: :unprocessable_entity }
+        end
     end
   end
 
