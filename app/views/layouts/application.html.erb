@@ -6,7 +6,7 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
 
 </head>
 <body>
@@ -36,7 +36,7 @@
           <% end %>
         </div>
       </form>
-      <div class="navbar-brand nav"><%= link_to 'Wool.ly', patterns_path %></div>
+      <div class="navbar-brand nav"><%= link_to 'wool.ly', patterns_path %></div>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to '', new_pattern_path, id: 'new_pattern' %></li>
         <div id="pattern_form">

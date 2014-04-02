@@ -31,6 +31,12 @@ li {
   list-style-type: none; 
 }
 
+#image {
+  width: 100%;
+  margin-top: -40px;
+  margin-left: -100px;
+}
+
 /*------------------------------- NAVBAR --------------------------------*/
 
 .search {
@@ -49,10 +55,10 @@ input#q_name_or_description_cont {
 }
 
 .navbar-brand a {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-weight: 700;
   font-style: italic;
-  font-size: 160%;
+  font-size: 150%;
   color: #04756F;
 }
 
