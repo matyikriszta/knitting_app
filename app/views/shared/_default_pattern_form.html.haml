@@ -4,4 +4,4 @@
   .field
     = p.input :no_of_stitches, :as => :hidden, :input_html => { :value => "30" }
   .action
-    = p.button :submit
+    = p.button :submit, "data-disable-with" => "Processing..."

@@ -23,19 +23,19 @@ class PatternsController < ApplicationController
   end
 
   def ladies
-    @patterns = Pattern.where(category_id: 55)
+    @patterns = Category.find_by_name('ladies').patterns
   end
 
   def gents
-    @patterns = Pattern.where(category_id: 56)
+    @patterns = Category.find_by_name('men').patterns
   end
 
   def kids
-    @patterns = Pattern.where(category_id: 57)
+    @patterns = Category.find_by_name('children').patterns
   end
 
   def holiday
-    @patterns = Pattern.where(category_id: 59)
+    @patterns = Category.find_by_name('holiday').patterns
   end
 
   # GET /patterns/1
