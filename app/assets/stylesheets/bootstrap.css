@@ -3643,7 +3643,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar {
   position: relative;
   min-height: 50px;
-  margin-bottom: 20px;
+  margin-bottom: 0;
   border: 1px solid transparent;
 }
 @media (min-width: 768px) {
@@ -3824,6 +3824,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   .navbar-nav > li > a {
     padding-top: 15px;
     padding-bottom: 15px;
+    padding-left: 10px;
   }
   .navbar-nav.navbar-right:last-child {
     margin-right: -15px;

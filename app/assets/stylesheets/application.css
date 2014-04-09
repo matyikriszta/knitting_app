@@ -14,7 +14,22 @@
  *= require_tree .
  */
 
- body { padding-top: 70px; }
+body { padding-top: 70px; }
+
+li { list-style-type: none; }
+
+#hero_image {
+  margin-top: -20px;
+}
+
+#intro {
+  width: 36%;
+  opacity: 0.9;
+  background: #fff;
+  position: fixed;
+  top: 50px;
+  left: 100px;
+}
 
 #main {
   width: 1240px;
@@ -25,16 +40,6 @@
 #container {
   width: 100%;
   margin: 0 auto;
-}
-
-li {
-  list-style-type: none; 
-}
-
-#image {
-  width: 100%;
-  margin-top: -40px;
-  margin-left: -100px;
 }
 
 /*------------------------------- NAVBAR --------------------------------*/

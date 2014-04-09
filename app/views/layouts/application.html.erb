@@ -62,10 +62,20 @@
     </div><!-- /.container-fluid -->
   </nav>
 
+  <% if current_user %>
   <!--   content -->
   <div id="main">
       <%= yield %>
   </div>
+  <% else %>
+    <div id="hero_image">
+      <%= image_tag 'yarn.jpg' %>
+      <div id="intro">
+        <h1>discover and share knitting patterns</h1>
+        <p>Knitsy helps you create, manage, share and discover knitting patterns. The project was created with the 21st century knitter in mind. Knitsy not only makes managing and tracking knitting projects easy, it makes it into a social experience.</p>
+      </div>
+    </div>
+  <% end %>
 
   <div id="filter" class="hidden filter_options">
     <ul>
@@ -77,10 +87,6 @@
       <li><%= link_to "Holiday", holiday_patterns_path %></li>
     </ul>
   </div>
-
-<!--   <div id="loader">
-    <img src="/assets/woolly.png">
-  </div> -->
 
 </body>
 </html>
