@@ -1,44 +1,45 @@
-%p#notice= notice
+.main  
+  %p#notice= notice
 
-%h3= @pattern.name
-%p= @pattern.user.try(:name)
+  %h3= @pattern.name
+  %p= @pattern.user.try(:name)
 
-#pattern
-  - @pattern.rows.each do |row|
-    .pattern_row{ id: row.id }
-      - row.stitches.each do |stitch|
-        .stitch{ :style => "background-color: #{stitch.color}", :data => { id: stitch.id} }
+  #pattern
+    - @pattern.rows.each do |row|
+      .pattern_row{ id: row.id }
+        - row.stitches.each do |stitch|
+          .stitch{ :style => "background-color: #{stitch.color}", :data => { id: stitch.id} }
 
-#info_show
-  %h4= @pattern.description
-  %h5 Difficulty:
-  = @pattern.difficulty.try(:name)
-  %h5 Category:
-  = @pattern.category.try(:name)
-  %hr
-  %h5 Instructions:
-  %p= @pattern.instructions
-  - if @pattern.user_id == current_user.id
-    %h5 Notes:
-    = @pattern.notes
-  %h5 Yarn:
-  = @pattern.yarn
-  %h5 Equipment:
-  = @pattern.equipment
+  #info_show
+    %h4= @pattern.description
+    %h5 Difficulty:
+    = @pattern.difficulty.try(:name)
+    %h5 Category:
+    = @pattern.category.try(:name)
+    %hr
+    %h5 Instructions:
+    %p= @pattern.instructions
+    - if @pattern.user_id == current_user.id
+      %h5 Notes:
+      = @pattern.notes
+    %h5 Yarn:
+    = @pattern.yarn
+    %h5 Equipment:
+    = @pattern.equipment
 
-#share_buttons
-  = link_to like_show_pattern_path(@pattern), method: :put do
-    %i.fa.fa-heart.fa-3x
-  = link_to "Unlike", unlike_show_pattern_path(@pattern), method: :put
-#manage_buttons
-  - if current_user.id == @pattern.user_id
-    = link_to 'Delete pattern', @pattern, :method => :delete, :data => { :confirm => 'Are you sure?' }
-    \|
-    = link_to 'Edit', edit_pattern_path(@pattern)
+  #share_buttons
+    = link_to like_show_pattern_path(@pattern), method: :put do
+      %i.fa.fa-heart.fa-3x
+    = link_to "Unlike", unlike_show_pattern_path(@pattern), method: :put
+  #manage_buttons
+    - if current_user.id == @pattern.user_id
+      = link_to 'Delete pattern', @pattern, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      \|
+      = link_to 'Edit', edit_pattern_path(@pattern)
 
-.comments
-  %h3 Comments
-  = render :partial => "comments/form", :locals => { :commentable => @pattern }
-  = render :partial => 'comments/comment', :collection => @comments, :as => :comment
+  .comments
+    %h3 Comments
+    = render :partial => "comments/form", :locals => { :commentable => @pattern }
+    = render :partial => 'comments/comment', :collection => @comments, :as => :comment
 
   

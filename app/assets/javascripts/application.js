@@ -18,6 +18,9 @@
 
 $(document).ready(function(){
 
+  // horrible dirty global, i'm very sorry
+  currentColor = '#fff'
+
   $('.button_to').on('submit', function(ev) {
     ev.preventDefault();
     url = $(ev.currentTarget).attr('action');
@@ -67,40 +70,56 @@ $(document).ready(function(){
 
   $(".stitch").mouseover(function(){
     if(isDown) {        // Only change css if mouse is down
-      $bgColor = $('#my_colour_code').css('background-color');
-      $(this).css({background: $bgColor});
-      $(this).html($stitchType);
+      var bgColor = $('.color_swatch').first().css('background-color');
+      $(this).css({background: currentColor});
     }
   });
 
   $(".stitch").mousedown(function() {
-    $bgColor = $('#my_colour_code').css('background-color');
-    $(this).css({background: $bgColor});
-    $(this).html(stitchType);
+    var bgColor = $('.color_swatch').first().css('background-color');
+    $(this).css({background: currentColor});
   });
 
   $(".stitch").mousedown(function() {
-    $bgColor = $('#my_colour_code').css('background-color');
-    $(this).css({background: $bgColor});
-    $(this).html(stitchType);
+    // var bgColor = $('.color_swatch').first().css('background-color');
+    $(this).css({background: currentColor});
   });
 
-  $(".color_swatch").mousedown(function() {
-    $bgColor = $('#my_colour_code').css('background-color');
-    $(this).css({background: $bgColor});
-  });
+  // $(".color_swatch").mousedown(function() {
+  //   $(this).css({background: colorValue});
+  // });
 
-  function stitchType(el, type) {
-    $(el).click(
-      function() {
-        $stitchType = type
-      }
-  )};
+  // function stitchType(el, type) {
+  //   $(el).click(
+  //     function() {
+  //       $stitchType = type
+  //     }
+  // )};
 
   function addEventListeners() {
     $('#purl').each(function(i, el) { stitchType(el, 'P');});
     $('#knit').each(function(i, el) { stitchType(el, 'K');});
-  };
+
+    $('#add').click(function() { 
+      colorValue = $('#my_colour_code').css('background-color')
+      $('.color_swatch').each(function(i, el) {
+        $el = $(el)
+        if ($el.css("background-color") == "rgba(0, 0, 0, 0)") {
+          $el.css('background-color', colorValue)
+          return false
+        }
+      })
+    })
+
+    $('#remove').click(function() {
+      $('.color_swatch').css('background-color', "rgba(0, 0, 0, 0)")
+    })
+
+    $('.color_swatch').click(function() {
+      $el = $(this)
+      currentColor = $el.css('background-color')
+    })
+  }
 
   $('#new_pattern').replaceWith('<a href=#pattern_form rel="leanModal"><i class="fa fa-plus fa-2x"></i></a>');
 

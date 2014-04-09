@@ -23,15 +23,38 @@ li { list-style-type: none; }
 }
 
 #intro {
-  width: 36%;
+  padding: 40px 40px 100px 40px;
+  width: 30%;
   opacity: 0.9;
   background: #fff;
   position: fixed;
   top: 50px;
-  left: 100px;
+  left: 160px;
 }
 
-#main {
+#intro h1 {
+  text-transform: uppercase;
+  font-family: 'Lato', sans-serif;
+  font-weight: 100; 
+  font-size: 430%;
+  margin-bottom: 40px;
+}
+
+#intro p {
+  margin-bottom: 60px;
+  font-size: 120%;
+}
+
+#intro a {
+  border-radius: 4px;
+  padding: 10px 40px;
+  background: #04756F;
+  text-transform: uppercase;
+  font-size: 140%;
+  color: #fff;
+}
+
+.main {
   width: 1240px;
   margin: 0 auto;
   margin-top: 20px;

@@ -109,6 +109,7 @@ class PatternsController < ApplicationController
   # DELETE /patterns/1.json
   def destroy
     @pattern = Pattern.find(params[:id])
+    @pattern.votes.destroy_all
     @pattern.destroy
 
     respond_to do |format|

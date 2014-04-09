@@ -6,7 +6,7 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700' rel='stylesheet' type='text/css'>
 
 </head>
 <body>
@@ -36,7 +36,7 @@
           <% end %>
         </div>
       </form>
-      <div class="navbar-brand nav"><%= link_to 'wool.ly', patterns_path %></div>
+      <div class="navbar-brand nav"><%= link_to 'knitsy', patterns_path %></div>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to '', new_pattern_path, id: 'new_pattern' %></li>
         <div id="pattern_form">
@@ -54,28 +54,17 @@
       </ul>
       <% else %>
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to 'sign in', new_user_session_path %></li>
+          <li><%= link_to 'login', new_user_session_path %></li>
           <li><%= link_to 'sign up', new_user_registration_path %></li>
         </ul>
       <% end %>
     </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
-
-  <% if current_user %>
   <!--   content -->
-  <div id="main">
-      <%= yield %>
-  </div>
-  <% else %>
-    <div id="hero_image">
-      <%= image_tag 'yarn.jpg' %>
-      <div id="intro">
-        <h1>discover and share knitting patterns</h1>
-        <p>Knitsy helps you create, manage, share and discover knitting patterns. The project was created with the 21st century knitter in mind. Knitsy not only makes managing and tracking knitting projects easy, it makes it into a social experience.</p>
-      </div>
-    </div>
-  <% end %>
+  
+  <%= yield %>
+
 
   <div id="filter" class="hidden filter_options">
     <ul>

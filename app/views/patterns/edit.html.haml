@@ -1,18 +1,19 @@
-#pattern{data: {id: @pattern.id}}
-  - @pattern.rows.each do |row|
-    .pattern_row{ id: row.id }
-      - row.stitches.each do |stitch|
-        .stitch{ :style => "background-color: #{stitch.color}", :data => { id: stitch.id} }
+.main 
+  #pattern{data: {id: @pattern.id}}
+    - @pattern.rows.each do |row|
+      .pattern_row{ id: row.id }
+        - row.stitches.each do |stitch|
+          .stitch{ :style => "background-color: #{stitch.color}", :data => { id: stitch.id} }
 
-#tabs
-  %ul
-    %li
-      %a{:href => "#tabs-1"} Pattern
-    %li
-      %a{:href => "#tabs-2"} Details
-  #tabs-1
-    = render 'shared/colorpicker'
+  #tabs
+    %ul
+      %li
+        %a{:href => "#tabs-1"} Pattern
+      %li
+        %a{:href => "#tabs-2"} Details
+    #tabs-1
+      = render 'shared/colorpicker'
 
-    = button_to 'Save pattern', @pattern, remote: true, method: :update, class: 'btn'
-  #tabs-2
-    = render 'form'
+      = button_to 'Save pattern', @pattern, remote: true, method: :update, class: 'btn'
+    #tabs-2
+      = render 'form'

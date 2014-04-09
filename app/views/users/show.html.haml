@@ -1,18 +1,19 @@
-%p#notice= notice
+.main
+  %p#notice= notice
 
-.profile
-  .profile_img
-    = image_tag(@user.user_image.profile.url)
-    = link_to 'Change image', edit_user_path(@user), class: 'hidden', id: 'edit_img'
-  .profile_details
-    %h2= @user.name
-    %p= @user.description
+  .profile
+    .profile_img
+      = image_tag(@user.user_image.profile.url)
+      = link_to 'Change image', edit_user_path(@user), class: 'hidden', id: 'edit_img'
+    .profile_details
+      %h2= @user.name
+      %p= @user.description
 
-= current_user.find_liked_items.count
-= link_to 'Likes', user_likes_path(@user)
+  = current_user.find_liked_items.count
+  = link_to 'Likes', user_likes_path(@user)
 
-#container
-  - if current_user == @user
-    = render 'private_profile'
-  - else
-    = render 'public_profile'
+  #container
+    - if current_user == @user
+      = render 'private_profile'
+    - else
+      = render 'public_profile'
