@@ -20,4 +20,6 @@
   <% end %>
 
   <%= render "devise/shared/links" %>
+
+  <%= link_to 'sign in with google', user_omniauth_authorize_path(:google_oauth2) %>
 </div>

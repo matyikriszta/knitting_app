@@ -100,17 +100,26 @@ input#q_name_or_description_cont {
   border-radius: 4px;
   border: 1px solid #e5e5e5;
   vertical-align: top;
-  min-width: 18%;
-  max-width: 21%;
+/*  min-width: 18%;*/
+  max-width: 19%;
   display: inline-block;
   margin-bottom: 10px;
   margin-left: 4px;
 }
 
 .pattern_preview {
-  margin-top: 5px;
+  margin: 5px 0;
   text-align: center;
   width: 236px;
+}
+
+.pattern_description_likes {
+  padding: 0 0 10px 0;
+  display: block;
+}
+
+.pattern_description_likes {
+  color: #545454;
 }
 
 .fa.fa-heart {
@@ -119,8 +128,29 @@ input#q_name_or_description_cont {
 
 .pattern_description_index {
   border-top: 1px solid #e5e5e5;
-  padding: 10px;
+  padding: 10px 10px 10px 12px;
   background-color: #fafafa;
+}
+
+.pattern_description_img {
+  vertical-align: top;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.pattern_description_img img {
+    border-radius: 2px;
+}
+
+.pattern_details {
+  vertical-align: top;
+  display: inline-block;
+}
+
+.pattern_details p {
+  color: #545454;
+  font-size: 90%;
+  margin-bottom: 6px;
 }
 
 /*------------------------------- PATTERN EDIT --------------------------------*/
@@ -149,9 +179,9 @@ input#q_name_or_description_cont {
 
 .stitch {
   display: inline-block;
-  border: 1px solid black;
-  width: 15px;
-  height: 15px;
+  border: 1px solid #7e7e7e;
+  width: 14px;
+  height: 12px;
 }
 
 #info {

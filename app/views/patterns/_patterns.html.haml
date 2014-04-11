@@ -2,17 +2,20 @@
   - if pattern.status == "public"
     .pattern_card
       .pattern_preview
-        - pattern.rows[0..6].each do |row|
+        - pattern.rows[0..8].each do |row|
           .pattern_row{ id: row.id }
             - row.stitches[0..11].each do |stitch|
               .stitch{ :style => "background-color: #{stitch.color}", :data => { id: stitch.id} }
       .pattern_description_index
         %p= link_to pattern.name, pattern
-        = link_to like_index_pattern_path(pattern), method: :put do
-          %i.fa.fa-heart
-        - if pattern.likes.size > 0
-          = pattern.likes.size
-        %p= link_to(image_tag(pattern.user.user_image.thumb.url), user_path(pattern.user_id))
-        %p= pattern.user.try(:name)
-        %p= pattern.difficulty.try(:name)
-        %p= pattern.category.try(:name)
+        %p= pattern.description
+        .pattern_description_likes
+          = link_to like_index_pattern_path(pattern), method: :put do
+            %i.fa.fa-heart
+          - if pattern.likes.size > 0
+            = pattern.likes.size
+        .pattern_description_img
+          = link_to(image_tag(pattern.user.user_image.thumb.url), user_path(pattern.user_id))
+        .pattern_details
+          %p= pattern.user.try(:name)
+          %p= "#{pattern.difficulty.try(:name)}, #{pattern.category.try(:name)}"

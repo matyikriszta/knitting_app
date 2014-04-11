@@ -9,11 +9,34 @@
       %h2= @user.name
       %p= @user.description
 
-  = current_user.find_liked_items.count
-  = link_to 'Likes', user_likes_path(@user)
-
-  #container
-    - if current_user == @user
-      = render 'private_profile'
-    - else
-      = render 'public_profile'
+  #tabs
+    %ul
+      %li
+        %a{:href => "#tabs-1"} Patterns
+      %li
+        %a{:href => "#tabs-2"} Likes
+    #tabs-1
+      #container
+      - if current_user == @user
+        = render 'private_profile'
+      - else
+        = render 'public_profile'
+    #tabs-2
+      #container
+        - @user_likes.each do |pattern|
+          .pattern_card
+            .pattern_preview
+              - pattern.rows[0..6].each do |row|
+                .pattern_row{ id: row.id }
+                  - row.stitches[0..11].each do |stitch|
+                    .stitch{ :style => "background-color: #{stitch.color}", :data => { id: stitch.id} }
+            .pattern_description_index
+              %p= link_to pattern.name, pattern
+              = link_to like_index_pattern_path(pattern), method: :put do
+                %i.fa.fa-heart
+              - if pattern.likes.size > 0
+                = pattern.likes.size
+              %p= link_to(image_tag(pattern.user.user_image.thumb.url), user_path(pattern.user_id))
+              %p= pattern.user.try(:name)
+              %p= pattern.difficulty.try(:name)
+              %p= pattern.category.try(:name)

@@ -1,8 +1,6 @@
 .main  
   %p#notice= notice
 
-  %h3= @pattern.name
-  %p= @pattern.user.try(:name)
 
   #pattern
     - @pattern.rows.each do |row|
@@ -11,6 +9,8 @@
           .stitch{ :style => "background-color: #{stitch.color}", :data => { id: stitch.id} }
 
   #info_show
+    %h3= @pattern.name
+    %p= @pattern.user.try(:name)
     %h4= @pattern.description
     %h5 Difficulty:
     = @pattern.difficulty.try(:name)
@@ -31,6 +31,8 @@
     = link_to like_show_pattern_path(@pattern), method: :put do
       %i.fa.fa-heart.fa-3x
     = link_to "Unlike", unlike_show_pattern_path(@pattern), method: :put
+    / = render 'shared/fb_share'
+    / = render 'shared/pinterest_share'
   #manage_buttons
     - if current_user.id == @pattern.user_id
       = link_to 'Delete pattern', @pattern, :method => :delete, :data => { :confirm => 'Are you sure?' }

@@ -19,7 +19,7 @@ KnittingApp::Application.routes.draw do
 
   get "patterns/:id", to: "patterns#pdf", as: 'pdf'
  
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
 
   resources :comments, :only => [:create, :destroy, :show]
 
