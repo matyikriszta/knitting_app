@@ -15,9 +15,11 @@
 
     %p= f.label :password_confirmation
     = f.password_field :password_confirmation
+    %br
 
     = f.submit "Sign up"
 
-  = render "devise/shared/links"
+  = 'Already have an account?'
+  = link_to 'Sign In', new_user_session_path
 
-  = link_to 'sign in with google', user_omniauth_authorize_path(:google_oauth2)
+  %p= link_to 'Sign up with Google', user_omniauth_authorize_path(:google_oauth2)
