@@ -275,6 +275,12 @@ label.radio {
   border-radius: 2px;
 }
 
+#tabs.profile {
+  margin-top: 20px;
+  min-width: 100%;
+  border: 0;
+}
+
 /*------------------------------- USER PATTERNS --------------------------------*/
 
 #ongoing {

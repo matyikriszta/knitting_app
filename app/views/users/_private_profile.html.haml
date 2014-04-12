@@ -1,13 +1,11 @@
-%h4#ongoing Ongoing projects
-
 - @user.patterns.each do |pattern|
   .pattern_card
     .pattern_preview
-      - pattern.rows[0..6].each do |row|
+      - pattern.rows[0..8].each do |row|
         .pattern_row{ id: row.id }
           - row.stitches[0..11].each do |stitch|
             .stitch{ :style => "background-color: #{stitch.color}", :data => { id: stitch.id} }
-    .pattern_description
+    .pattern_description_index
       %p= link_to pattern.name, pattern
       %p= pattern.difficulty.try(:name)
       %p= pattern.description
