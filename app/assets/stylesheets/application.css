@@ -182,6 +182,8 @@ input#q_name_or_description_cont {
   border: 1px solid #7e7e7e;
   width: 14px;
   height: 12px;
+  font-size: 88%;
+  font-weight: bold;
 }
 
 #info {

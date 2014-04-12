@@ -13,6 +13,9 @@
         %a{:href => "#tabs-2"} Details
     #tabs-1
       = render 'shared/colorpicker'
+      %a{:href => '#', id: 'knit'} K
+      %a{:href => '#', id: 'purl'} P
+      
 
       = button_to 'Save pattern', @pattern, remote: true, method: :update, class: 'btn'
     #tabs-2

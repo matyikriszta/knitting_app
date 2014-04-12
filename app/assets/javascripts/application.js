@@ -70,35 +70,31 @@ $(document).ready(function(){
 
   $(".stitch").mouseover(function(){
     if(isDown) {        // Only change css if mouse is down
-      var bgColor = $('.color_swatch').first().css('background-color');
-      $(this).css({background: currentColor});
+      $(this).html($stitchType);
+      $(this).css({color: currentColor});
     }
   });
 
   $(".stitch").mousedown(function() {
-    var bgColor = $('.color_swatch').first().css('background-color');
-    $(this).css({background: currentColor});
+    $(this).html($stitchType);
+    $(this).css({color: currentColor});
   });
 
   $(".stitch").mousedown(function() {
-    // var bgColor = $('.color_swatch').first().css('background-color');
-    $(this).css({background: currentColor});
+    $(this).html($stitchType);
+    $(this).css({color: currentColor});
   });
 
-  // $(".color_swatch").mousedown(function() {
-  //   $(this).css({background: colorValue});
-  // });
-
-  // function stitchType(el, type) {
-  //   $(el).click(
-  //     function() {
-  //       $stitchType = type
-  //     }
-  // )};
 
   function addEventListeners() {
-    $('#purl').each(function(i, el) { stitchType(el, 'P');});
-    $('#knit').each(function(i, el) { stitchType(el, 'K');});
+    $('#purl').click(function() {
+      $stitchType = $(this).html();
+    });
+
+    $('#knit').click(function() {
+      $stitchType = $(this).html();
+    });
+
 
     $('#add').click(function() { 
       colorValue = $('#my_colour_code').css('background-color')
