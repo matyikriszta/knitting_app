@@ -26,7 +26,7 @@
         - @user_likes.each do |pattern|
           .pattern_card
             .pattern_preview
-              - pattern.rows[0..6].each do |row|
+              - pattern.rows[0..7].each do |row|
                 .pattern_row{ id: row.id }
                   - row.stitches[0..11].each do |stitch|
                     .stitch{ :style => "background-color: #{stitch.color}", :data => { id: stitch.id} }
