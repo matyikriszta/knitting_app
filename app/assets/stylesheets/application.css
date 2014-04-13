@@ -322,6 +322,10 @@ label.radio {
   display: inline-block;
 }
 
+#pattern_toggle {
+  display: none;
+}
+
 #info_show {
   border: 1px solid black;
   width: 28%;
@@ -335,7 +339,7 @@ label.radio {
 
 .comments {
   border:  1px solid black;
-  margin: 0 0 0 6.5%; 
+  margin: 0 0 0 6.3%; 
   width: 64%;
   margin-bottom: 60px;
 }

@@ -21,6 +21,11 @@ $(document).ready(function(){
   // horrible dirty global, i'm very sorry
   currentColor = '#fff'
 
+  $('#show_pattern').click(function() {
+    $('#pattern_toggle').slideToggle( 'slow' );
+  });
+    
+
   $('#add_row').bind("ajax:success", function(evt, data, status, xhr) {
     $('#pattern').append("<div class='pattern_row'></div>");
     var count = $('.pattern_row').first().children().length;

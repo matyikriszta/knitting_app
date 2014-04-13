@@ -25,13 +25,13 @@
           - row.stitches.each do |stitch|
             .stitch{ :style => "background-color: #{stitch.color}", :data => { id: stitch.id} } 
               = stitch.stitch_symbol
-      = link_to 'Show'
-    #pattern_hide.hidden
+    #pattern_toggle{ :style => 'display: none'}
       - @pattern.rows[11..-1].each do |row|
         .pattern_row{ id: row.id }
           - row.stitches.each do |stitch|
             .stitch{ :style => "background-color: #{stitch.color}", :data => { id: stitch.id} } 
               = stitch.stitch_symbol
+    %a{:href => "#", id: 'show_pattern'} Show
 
   #info_show
     %h2= "#{@pattern.name} by #{@pattern.user.try(:name)}"
