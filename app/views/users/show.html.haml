@@ -17,16 +17,16 @@
         %a{:href => "#tabs-2"} Likes
     #tabs-1
       #container
-      - if current_user == @user
-        = render 'private_profile'
-      - else
-        = render 'public_profile'
+        - if current_user == @user
+          = render 'private_profile'
+        - else
+          = render 'public_profile'
     #tabs-2
       #container
         - @user_likes.each do |pattern|
           .pattern_card
             .pattern_preview
-              - pattern.rows[0..7].each do |row|
+              - pattern.rows[0..8].each do |row|
                 .pattern_row{ id: row.id }
                   - row.stitches[0..11].each do |stitch|
                     .stitch{ :style => "background-color: #{stitch.color}", :data => { id: stitch.id} }

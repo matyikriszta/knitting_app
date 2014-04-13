@@ -3824,10 +3824,10 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   .navbar-nav > li > a {
     padding-top: 15px;
     padding-bottom: 15px;
-    padding-left: 10px;
+    /*padding-left: 10px;*/
   }
   .navbar-nav.navbar-right:last-child {
-    margin-right: -15px;
+    /*margin-right: -15px;*/
   }
 }
 @media (min-width: 768px) {
@@ -3992,7 +3992,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
   color: #04756F;
-  background-color: #e7e7e7;
+/*  background-color: #e7e7e7;*/
 }
 @media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {

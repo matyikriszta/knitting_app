@@ -53,16 +53,14 @@ li { list-style-type: none; }
 }
 
 .main {
-  border: 1px solid black;
   width: 1240px;
   margin: 0 auto;
   margin-top: 20px;
 }
 
 #container {
-  border: 1px solid black;
   width: 100%;
-  margin: 0 auto;
+  margin: 0 0 60px 0;
 }
 
 /*------------------------------- NAVBAR --------------------------------*/
@@ -90,6 +88,12 @@ input#q_name_or_description_cont {
 
 .navbar-brand a:hover {
   color: #04756F;
+}
+
+.dropdown a {
+  padding-top: 18px;
+  padding-left: 20px;
+  font-size: 110%;
 }
 
 /*------------------------------- PATTERN PREVIEW --------------------------------*/
@@ -311,14 +315,12 @@ label.radio {
 #share_buttons {
   min-width: 6%;
   vertical-align: top;
-  border: 1px solid black;
   display: inline-block;
 }
 
 #pattern {
   vertical-align: top;
   width: 64%;
-  border: 1px solid black;
   display: inline-block;
 }
 
@@ -327,7 +329,6 @@ label.radio {
 }
 
 #info_show {
-  border: 1px solid black;
   width: 28%;
   display: inline-block;
 }
@@ -338,9 +339,8 @@ label.radio {
 }
 
 .comments {
-  border:  1px solid black;
   margin: 0 0 0 6.3%; 
-  width: 64%;
+  width: 60%;
   margin-bottom: 60px;
 }
 

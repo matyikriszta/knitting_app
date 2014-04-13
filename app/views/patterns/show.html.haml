@@ -19,22 +19,30 @@
     / = render 'shared/pinterest_share'
 
   #pattern
-    #pattern_show
-      - @pattern.rows[0..10].each do |row|
-        .pattern_row{ id: row.id }
-          - row.stitches.each do |stitch|
-            .stitch{ :style => "background-color: #{stitch.color}", :data => { id: stitch.id} } 
+    - if @pattern.rows.count <= 20
+      #pattern_show
+        - @pattern.rows.each do |row|
+          .pattern_row{ id: row.id }
+            - row.stitches.each do |stitch|
+              .stitch{ :style => "background-color: #{stitch.color}", :data => { id: stitch.id} } 
               = stitch.stitch_symbol
-    #pattern_toggle{ :style => 'display: none'}
-      - @pattern.rows[11..-1].each do |row|
-        .pattern_row{ id: row.id }
-          - row.stitches.each do |stitch|
-            .stitch{ :style => "background-color: #{stitch.color}", :data => { id: stitch.id} } 
-              = stitch.stitch_symbol
-    %a{:href => "#", id: 'show_pattern'} Show
+    - else
+      #pattern_show
+        - @pattern.rows[0..19].each do |row|
+          .pattern_row{ id: row.id }
+            - row.stitches.each do |stitch|
+              .stitch{ :style => "background-color: #{stitch.color}", :data => { id: stitch.id} } 
+                = stitch.stitch_symbol
+      #pattern_toggle{ :style => 'display: none'}
+        - @pattern.rows[20..-1].each do |row|
+          .pattern_row{ id: row.id }
+            - row.stitches.each do |stitch|
+              .stitch{ :style => "background-color: #{stitch.color}", :data => { id: stitch.id} } 
+                = stitch.stitch_symbol
+      %a{:href => "#", id: 'show_pattern'} Show
 
   #info_show
-    %h2= "#{@pattern.name} by #{@pattern.user.try(:name)}"
+    %h3= "#{@pattern.name} by #{@pattern.user.try(:name)}"
     %p= @pattern.description
     %h5 Difficulty:
     = @pattern.difficulty.try(:name)

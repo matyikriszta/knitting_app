@@ -4,9 +4,9 @@ class PatternsController < ApplicationController
   # GET /patterns
   # GET /patterns.json
   def index
-    @patterns = Pattern.order("created_at DESC").page params[:page]
+    @patterns = Pattern.order("created_at DESC").paginate(:page => params[:page], :per_page => 15)
     @q = Pattern.search(params[:q])
-    @patterns_search = @q.result(distinct: true).page params[:page]
+    @patterns_search = @q.result(distinct: true).paginate(:page => params[:page], :per_page => 15)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,9 +14,9 @@ class PatternsController < ApplicationController
     end
   end
 
-  def latest
-    @patterns = Pattern.order("created_at DESC").all
-  end
+  # def latest
+  #   @patterns = Pattern.order("created_at DESC").all
+  # end
 
   def popular
     @patterns = Pattern.order("cached_votes_total DESC").all

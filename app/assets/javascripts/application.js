@@ -29,7 +29,6 @@ $(document).ready(function(){
         $("#show_pattern").html("Show");
   });
     
-
   $('#add_row').bind("ajax:success", function(evt, data, status, xhr) {
     $('#pattern').append("<div class='pattern_row'></div>");
     var count = $('.pattern_row').first().children().length;
@@ -166,6 +165,28 @@ $(document).ready(function(){
       // update columnWidth to a percentage of container width
       masonry: { columnWidth: $container.width() / 5 }
     });
+  });
+
+  $container.imagesLoaded(function() {
+
+    $container.isotope({
+      // update columnWidth to a percentage of container width
+      masonry: { columnWidth: $container.width() / 5 }
+    });
+  
+    $container.infinitescroll({
+
+      navSelector  : "#pagination",            
+                     // selector for the paged navigation (it will be hidden)
+      nextSelector : "#pagination .pagination .next_page",    
+                     // selector for the NEXT link (to page 2)
+      itemSelector : ".pattern_card"          
+                     // selector for all items you'll retrieve
+    },
+    function(newElements) {
+      $container.isotope('appended', $(newElements));
+    }
+    );
   });
 
   $(function() {
