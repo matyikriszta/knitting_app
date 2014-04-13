@@ -18,6 +18,7 @@ gem 'simple_form'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 gem 'acts_as_commentable_with_threading'
+gem 'kaminari'
 
 group :development, :test do
   gem 'sqlite3'

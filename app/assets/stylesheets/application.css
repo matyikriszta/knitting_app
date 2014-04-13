@@ -184,7 +184,8 @@ input#q_name_or_description_cont {
   border: 1px solid #7e7e7e;
   width: 14px;
   height: 14px;
-  font-size: 68%;
+  line-height: 11px;
+  font-size: 110%;
   font-weight: bold;
   padding: 0;
   font-family: 'Sniglet', cursive;

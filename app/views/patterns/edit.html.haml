@@ -1,5 +1,8 @@
 .main 
   #pattern{data: {id: @pattern.id}}
+    = link_to "add a column", @pattern, remote: true, id: 'add_column'
+    \|
+    = link_to "add a row", @pattern, remote: true, id: 'add_row'
     - @pattern.rows.each do |row|
       .pattern_row{ id: row.id }
         - row.stitches.each do |stitch|
