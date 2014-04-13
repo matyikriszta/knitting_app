@@ -23,6 +23,10 @@ $(document).ready(function(){
 
   $('#show_pattern').click(function() {
     $('#pattern_toggle').slideToggle( 'slow' );
+    if($("#show_pattern").html() == "Show")
+        $("#show_pattern").html("Hide");
+      else
+        $("#show_pattern").html("Show");
   });
     
 
