@@ -3,7 +3,8 @@
     - @pattern.rows.each do |row|
       .pattern_row{ id: row.id }
         - row.stitches.each do |stitch|
-          .stitch{ :style => "background-color: #{stitch.color}", :data => { id: stitch.id} }
+          .stitch{ :style => "color: #{stitch.color}", :data => { id: stitch.id} }
+            = stitch.stitch_symbol
 
   #tabs
     %ul
@@ -13,8 +14,9 @@
         %a{:href => "#tabs-2"} Details
     #tabs-1
       = render 'shared/colorpicker'
-      %a{:href => '#', id: 'knit'} K
-      %a{:href => '#', id: 'purl'} P
+      %a{:href => '#', id: 'knit', class: 'type_swatch'}
+      %a{:href => '#', id: 'knit', class: 'type_swatch'} O
+      %a{:href => '#', id: 'purl', class: 'type_swatch'} X
       
 
       = button_to 'Save pattern', @pattern, remote: true, method: :update, class: 'btn'

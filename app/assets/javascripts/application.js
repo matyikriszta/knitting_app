@@ -40,7 +40,8 @@ $(document).ready(function(){
       $(row).children().each(function(index, stitch) {
         var stitchData = {};
         stitchData.id = $(stitch).data('id');
-        stitchData.color = $(stitch).css('background-color');
+        stitchData.color = $(stitch).css('color');
+        stitchData.stitch_symbol = $(stitch).html();
         rowData.stitches_attributes.push(stitchData);
       });
       data.pattern.rows_attributes.push(rowData);

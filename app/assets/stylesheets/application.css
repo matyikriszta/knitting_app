@@ -178,12 +178,15 @@ input#q_name_or_description_cont {
 }
 
 .stitch {
+  vertical-align: center;
+  text-align: center;
   display: inline-block;
   border: 1px solid #7e7e7e;
   width: 14px;
-  height: 12px;
-  font-size: 88%;
+  height: 14px;
+  font-size: 68%;
   font-weight: bold;
+  padding: 0;
 }
 
 #info {
@@ -229,6 +232,19 @@ label.radio {
   height: 40px;
   border: 1px solid #e5e5e5;
   border-radius: 4px;
+}
+
+.type_swatch {
+  vertical-align: top;
+  text-align: center;
+  display: inline-block;
+  margin: 0 8px 0 0; 
+  padding: 5px 0 0 0;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  font-size: 140%;
 }
 
 /*------------------------------- FILTER SEARCH --------------------------------*/
