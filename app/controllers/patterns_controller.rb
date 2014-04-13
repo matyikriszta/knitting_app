@@ -4,9 +4,9 @@ class PatternsController < ApplicationController
   # GET /patterns
   # GET /patterns.json
   def index
-    @patterns = Pattern.all
+    @patterns = Pattern.order("created_at DESC").page params[:page]
     @q = Pattern.search(params[:q])
-    @patterns = @q.result(distinct: true)
+    @patterns_search = @q.result(distinct: true).page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb
@@ -126,7 +126,7 @@ class PatternsController < ApplicationController
 
   def unlike_show
     @pattern = Pattern.find(params[:id])
-    @pattern.downvote_from current_user
+    @pattern.unliked_by current_user
     redirect_to @pattern
   end
 
@@ -138,13 +138,18 @@ class PatternsController < ApplicationController
 
   def unlike_index
     @pattern = Pattern.find(params[:id])
-    @pattern.downvote_from current_user
+    @pattern.unliked_by current_user
     redirect_to patterns_path
   end
 
   def voted_for
     @pattern = Pattern.find(params[:id])
     @user.voted_for? @pattern
+  end
+
+  def voted_down_on
+    @pattern = Pattern.find(params[:id])
+    @user.voted_down_on? @pattern
   end
 
   # def pdf

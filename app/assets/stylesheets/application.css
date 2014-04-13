@@ -18,9 +18,7 @@ body { padding-top: 70px; }
 
 li { list-style-type: none; }
 
-#hero_image {
-  margin-top: -20px;
-}
+#hero_image { margin-top: -20px; }
 
 #intro {
   padding: 40px 40px 110px 40px;
@@ -55,21 +53,21 @@ li { list-style-type: none; }
 }
 
 .main {
+  border: 1px solid black;
   width: 1240px;
   margin: 0 auto;
   margin-top: 20px;
 }
 
 #container {
+  border: 1px solid black;
   width: 100%;
   margin: 0 auto;
 }
 
 /*------------------------------- NAVBAR --------------------------------*/
 
-.search {
-  margin: 0;
-}
+.search { margin: 0; }
 
 input.btn.btn-default.navbar-btn {
   width: 70px;
@@ -155,7 +153,7 @@ input#q_name_or_description_cont {
 
 /*------------------------------- PATTERN EDIT --------------------------------*/
 
-#pattern {
+#pattern_edit {
   cursor: pointer;
   display: inline-block;
   width: 68%;
@@ -310,11 +308,35 @@ label.radio {
 
 /*------------------------------- PATTERN SHOW --------------------------------*/
 
-#info_show {
+#share_buttons {
+  min-width: 6%;
+  vertical-align: top;
+  border: 1px solid black;
   display: inline-block;
 }
 
+#pattern {
+  vertical-align: top;
+  width: 64%;
+  border: 1px solid black;
+  display: inline-block;
+}
+
+#info_show {
+  border: 1px solid black;
+  width: 28%;
+  display: inline-block;
+}
+
+#manage_buttons {
+  display: inline-block;
+  border: 1px solid black;
+}
+
 .comments {
+  border:  1px solid black;
+  margin: 0 0 0 6.5%; 
+  width: 64%;
   margin-bottom: 60px;
 }
 

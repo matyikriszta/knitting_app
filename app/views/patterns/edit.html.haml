@@ -1,5 +1,5 @@
 .main 
-  #pattern{data: {id: @pattern.id}}
+  #pattern_edit{data: {id: @pattern.id}}
     = link_to "add a column", @pattern, remote: true, id: 'add_column'
     \|
     = link_to "add a row", @pattern, remote: true, id: 'add_row'

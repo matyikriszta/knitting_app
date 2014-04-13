@@ -1,18 +1,41 @@
 .main  
   %p#notice= notice
 
+  #share_buttons
+    = link_to like_show_pattern_path(@pattern), method: :put do
+      %i.fa.fa-heart.fa-2x
+    - if current_user.voted_for? @pattern
+      = link_to 'Unlike', unlike_show_pattern_path(@pattern), method: :put
+      %br   
+    - else
+      = link_to 'Like', like_show_pattern_path(@pattern), method: :put
+      %br
+    - if current_user.id == @pattern.user_id
+      = link_to 'Edit', edit_pattern_path(@pattern)
+      %br
+      = link_to 'Delete', @pattern, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+    / = render 'shared/fb_share'
+    / = render 'shared/pinterest_share'
 
   #pattern
-    - @pattern.rows.each do |row|
-      .pattern_row{ id: row.id }
-        - row.stitches.each do |stitch|
-          .stitch{ :style => "background-color: #{stitch.color}", :data => { id: stitch.id} } 
-            = stitch.stitch_symbol
+    #pattern_show
+      - @pattern.rows[0..10].each do |row|
+        .pattern_row{ id: row.id }
+          - row.stitches.each do |stitch|
+            .stitch{ :style => "background-color: #{stitch.color}", :data => { id: stitch.id} } 
+              = stitch.stitch_symbol
+      = link_to 'Show'
+    #pattern_hide.hidden
+      - @pattern.rows[11..-1].each do |row|
+        .pattern_row{ id: row.id }
+          - row.stitches.each do |stitch|
+            .stitch{ :style => "background-color: #{stitch.color}", :data => { id: stitch.id} } 
+              = stitch.stitch_symbol
 
   #info_show
-    %h3= @pattern.name
-    %p= @pattern.user.try(:name)
-    %h4= @pattern.description
+    %h2= "#{@pattern.name} by #{@pattern.user.try(:name)}"
+    %p= @pattern.description
     %h5 Difficulty:
     = @pattern.difficulty.try(:name)
     %h5 Category:
@@ -27,18 +50,6 @@
     = @pattern.yarn
     %h5 Equipment:
     = @pattern.equipment
-
-  #share_buttons
-    = link_to like_show_pattern_path(@pattern), method: :put do
-      %i.fa.fa-heart.fa-3x
-    = link_to "Unlike", unlike_show_pattern_path(@pattern), method: :put
-    / = render 'shared/fb_share'
-    / = render 'shared/pinterest_share'
-  #manage_buttons
-    - if current_user.id == @pattern.user_id
-      = link_to 'Delete pattern', @pattern, :method => :delete, :data => { :confirm => 'Are you sure?' }
-      \|
-      = link_to 'Edit', edit_pattern_path(@pattern)
 
   .comments
     %h3 Comments
