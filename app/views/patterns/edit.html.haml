@@ -15,8 +15,8 @@
     #tabs-1
       = render 'shared/colorpicker'
       %a{:href => '#', id: 'knit', class: 'type_swatch'}
-      %a{:href => '#', id: 'knit', class: 'type_swatch'} O
-      %a{:href => '#', id: 'purl', class: 'type_swatch'} X
+      %a{:href => '#', id: 'knit', class: 'type_swatch'} o
+      %a{:href => '#', id: 'purl', class: 'type_swatch'} x
       
 
       = button_to 'Save pattern', @pattern, remote: true, method: :update, class: 'btn'
