@@ -1,7 +1,6 @@
-%h1 Account Settings
+.main
+  %h1 Account Settings
 
-= render 'form'
+  = render 'form'
 
-= link_to 'Show', @user
-\|
-= link_to 'Back', users_path
+  = link_to 'Cancel', user_path(@user)
