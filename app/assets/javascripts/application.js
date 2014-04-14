@@ -30,7 +30,7 @@ $(document).ready(function(){
   });
     
   $('#add_row').bind("ajax:success", function(evt, data, status, xhr) {
-    $('#pattern').append("<div class='pattern_row'></div>");
+    $('#pattern_edit').append("<div class='pattern_row'></div>");
     var count = $('.pattern_row').first().children().length;
     for (var i = 0; i < count; i++) {
     $('.pattern_row').last().append("<div class='stitch'></div>");
@@ -54,7 +54,7 @@ $(document).ready(function(){
       data.pattern.colors_attributes.push(colorData);
     });
 
-    $('#pattern .pattern_row').each(function(index, row) {
+    $('#pattern_edit .pattern_row').each(function(index, row) {
       var rowData = { stitches_attributes: [] };
       rowData.id = $(row).attr('id');
       $(row).children().each(function(index, stitch) {
@@ -72,7 +72,7 @@ $(document).ready(function(){
       dataType: "json",
       data: data,
       success: function(data) { // code to run if the request succeeds
-        window.location.href = '/patterns/' + $('#pattern').data('id') + '/edit';
+        window.location.href = '/patterns/' + $('#pattern_edit').data('id') + '/edit';
       },
     });
     return false;
