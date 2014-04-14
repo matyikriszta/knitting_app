@@ -70,10 +70,10 @@ class PatternsController < ApplicationController
       Color.create!(pattern_id: pattern.id)
     end
     pattern.user = current_user
-    pattern.no_of_rows.to_i.times do
-      row = Row.create!(pattern_id: pattern.id)
-      pattern.no_of_stitches.to_i.times do
-        Stitch.create!(row_id: row.id)
+    pattern.no_of_rows.to_i.times do |n|
+      row = Row.create!(pattern_id: pattern.id, position: n)
+      pattern.no_of_stitches.to_i.times do |m|
+        Stitch.create!(row_id: row.id, position: m)
       end
     end
     end

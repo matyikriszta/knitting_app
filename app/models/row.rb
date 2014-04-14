@@ -1,6 +1,6 @@
 class Row < ActiveRecord::Base
   belongs_to :pattern
-  has_many :stitches
+  has_many :stitches, :order => 'position ASC'
 
   accepts_nested_attributes_for :stitches, allow_destroy: true
 

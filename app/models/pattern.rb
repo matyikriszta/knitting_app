@@ -5,7 +5,7 @@ class Pattern < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
   belongs_to :difficulty
-  has_many :rows
+  has_many :rows, :order => 'position ASC'
   has_many :stitches, through: :rows
   has_many :images
   has_many :colors
