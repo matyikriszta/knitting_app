@@ -61,7 +61,7 @@ $(document).ready(function(){
         var stitchData = {};
         stitchData.id = $(stitch).data('id');
         stitchData.color = $(stitch).css('color');
-        stitchData.stitch_symbol = $(stitch).html();
+        stitchData.stitch_symbol = $(stitch).html().trim();
         rowData.stitches_attributes.push(stitchData);
       });
       data.pattern.rows_attributes.push(rowData);
