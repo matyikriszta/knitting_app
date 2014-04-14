@@ -3,7 +3,10 @@
 
   .profile
     .profile_img
-      = image_tag(@user.user_image.profile.url)
+      - if @user.user_image.file && @user.user_image.file.exists?
+        = image_tag(@user.user_image.profile.url)
+      - else
+        = image_tag("default-avatar.png")
       = link_to 'Change image', edit_user_path(@user), class: 'hidden', id: 'edit_img'
     .profile_details
       %h2= @user.name
