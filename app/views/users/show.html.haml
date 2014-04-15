@@ -33,7 +33,10 @@
                 .pattern_row{ id: row.id }
                   - row.stitches[0..11].each do |stitch|
                     .stitch{ :style => "color: #{stitch.color}", :data => { id: stitch.id} }
-                      = stitch.stitch_symbol
+                      - if stitch.stitch_symbol.strip.empty?
+                        &nbsp;
+                      - else
+                        = stitch.stitch_symbol.strip
             .pattern_description_index
               %p= link_to pattern.name, pattern
               .pattern_description_likes

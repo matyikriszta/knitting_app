@@ -7,7 +7,10 @@
       .pattern_row{ id: row.id }
         - row.stitches.each do |stitch|
           .stitch{ :style => "color: #{stitch.color}", :data => { id: stitch.id} }
-            = stitch.stitch_symbol
+            - if stitch.stitch_symbol.strip.empty?
+              &nbsp;
+            - else
+              = stitch.stitch_symbol.strip
 
   #tabs
     %ul
