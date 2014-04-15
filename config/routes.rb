@@ -8,12 +8,15 @@ KnittingApp::Application.routes.draw do
       put "unlike_index", to: "patterns#unlike_index"
     end
     collection do
-      get :latest
       get :popular
       get :ladies
       get :gents
       get :kids
+      get :babies
       get :holiday
+      get :easy
+      get :intermediate
+      get :advanced
     end
   end
 

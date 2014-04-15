@@ -14,10 +14,6 @@ class PatternsController < ApplicationController
     end
   end
 
-  # def latest
-  #   @patterns = Pattern.order("created_at DESC").all
-  # end
-
   def popular
     @patterns = Pattern.order("cached_votes_total DESC").all
   end
@@ -34,8 +30,24 @@ class PatternsController < ApplicationController
     @patterns = Category.find_by_name('children').patterns
   end
 
+  def babies
+    @patterns = Category.find_by_name('baby').patterns
+  end
+
   def holiday
     @patterns = Category.find_by_name('holiday').patterns
+  end
+
+  def easy
+    @patterns = Difficulty.find_by_name('easy').patterns
+  end
+
+  def intermediate
+    @patterns = Difficulty.find_by_name('intermediate').patterns
+  end
+
+  def advanced
+    @patterns = Difficulty.find_by_name('advanced').patterns
   end
 
   # GET /patterns/1
