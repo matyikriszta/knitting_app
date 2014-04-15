@@ -40,7 +40,7 @@
       <ul class="nav navbar-nav">
         <li><a href="#" id="filter_dropdown"><i class="fa fa-bars fa-2x"></i></a></li>
       </ul>
-      <form class="navbar-form navbar-left" role="search">
+      <form class="navbar-form navbar-left hidden" role="search">
         <div class="form-group">
           <%= search_form_for @q do |f| %>
             <%= f.text_field :name_or_description_cont, placeholder: 'Search' %>
