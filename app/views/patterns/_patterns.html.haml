@@ -9,7 +9,7 @@
                 - if stitch.stitch_symbol.strip.empty?
                   &nbsp;
                 - else
-                  = stitch.stitch_symbol.strip
+                  =raw stitch.stitch_symbol.strip
       .pattern_description_index
         %p= link_to pattern.name, pattern
         .pattern_description_likes

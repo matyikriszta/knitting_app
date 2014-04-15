@@ -28,7 +28,7 @@
                 - if stitch.stitch_symbol.strip.empty?
                   &nbsp;
                 - else
-                  = stitch.stitch_symbol.strip
+                  =raw stitch.stitch_symbol.strip
     - else
       #pattern_show
         - @pattern.rows[0..19].each do |row|
