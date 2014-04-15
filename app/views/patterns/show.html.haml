@@ -24,20 +24,20 @@
         - @pattern.rows.each do |row|
           .pattern_row{ id: row.id }
             - row.stitches.each do |stitch|
-              .stitch{ :style => "background-color: #{stitch.color}", :data => { id: stitch.id} } 
-              = stitch.stitch_symbol
+              .stitch{ :style => "color: #{stitch.color}", :data => { id: stitch.id} } 
+                = stitch.stitch_symbol
     - else
       #pattern_show
         - @pattern.rows[0..19].each do |row|
           .pattern_row{ id: row.id }
             - row.stitches.each do |stitch|
-              .stitch{ :style => "background-color: #{stitch.color}", :data => { id: stitch.id} } 
+              .stitch{ :style => "color: #{stitch.color}", :data => { id: stitch.id} } 
                 = stitch.stitch_symbol
       #pattern_toggle{ :style => 'display: none'}
         - @pattern.rows[20..-1].each do |row|
           .pattern_row{ id: row.id }
             - row.stitches.each do |stitch|
-              .stitch{ :style => "background-color: #{stitch.color}", :data => { id: stitch.id} } 
+              .stitch{ :style => "color: #{stitch.color}", :data => { id: stitch.id} } 
                 = stitch.stitch_symbol
       %a{:href => "#", id: 'show_pattern'} Show
 

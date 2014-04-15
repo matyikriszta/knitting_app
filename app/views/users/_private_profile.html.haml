@@ -1,19 +1,23 @@
 - @user.patterns.each do |pattern|
   .pattern_card
     .pattern_preview
-      - pattern.rows[0..8].each do |row|
+      - pattern.rows[0..7].each do |row|
         .pattern_row{ id: row.id }
           - row.stitches[0..11].each do |stitch|
-            .stitch{ :style => "background-color: #{stitch.color}", :data => { id: stitch.id} }
+            .stitch{ :style => "color: #{stitch.color}", :data => { id: stitch.id} }
+              = stitch.stitch_symbol
     .pattern_description_index
       %p= link_to pattern.name, pattern
-      %p= pattern.difficulty.try(:name)
-      %p= pattern.description
-      %p= pattern.yarn
-      %p= pattern.equipment
-      %p= pattern.category.try(:name)
-      - unless pattern.user_id == current_user.id
+      .pattern_description_likes
         = link_to like_index_pattern_path(pattern), method: :put do
-          %i.fa.fa-heart.fa-2x
+          %i.fa.fa-heart
         - if pattern.likes.size > 0
           = pattern.likes.size
+      .pattern_description_img
+        - if pattern.user.user_image.file && pattern.user.user_image.file.exists?
+          = link_to(image_tag(pattern.user.user_image.thumb.url), user_path(pattern.user_id))
+        - else
+          = link_to image_tag("default-avatar.png"), user_path(pattern.user_id)
+      .pattern_details
+        %p= pattern.user.try(:name)
+        %p= "#{pattern.difficulty.try(:name)}, #{pattern.category.try(:name)}"
