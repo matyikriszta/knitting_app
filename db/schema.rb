@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140412223223) do
+ActiveRecord::Schema.define(:version => 20140415121017) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -93,9 +93,9 @@ ActiveRecord::Schema.define(:version => 20140412223223) do
   add_index "rows", ["pattern_id"], :name => "index_rows_on_pattern_id"
 
   create_table "stitches", :force => true do |t|
-    t.integer "row_id",        :null => false
+    t.integer "row_id",                        :null => false
     t.string  "color"
-    t.string  "stitch_symbol"
+    t.string  "stitch_symbol", :default => ""
     t.integer "position"
   end
 
