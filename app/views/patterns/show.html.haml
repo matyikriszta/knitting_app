@@ -1,40 +1,38 @@
 .main  
   #share_buttons
-    = link_to like_show_pattern_path(@pattern), method: :put do
-      %i.fa.fa-heart.fa-2x
-    - if current_user.voted_for? @pattern
-      = link_to 'Unlike', unlike_show_pattern_path(@pattern), method: :put
-      %br   
-    - else
-      = link_to 'Like', like_show_pattern_path(@pattern), method: :put
-      %br
+    - unless current_user.id == @pattern.user_id
+      = link_to like_show_pattern_path(@pattern), method: :put do
+        %i.fa.fa-heart.fa-2x
+      - if current_user.voted_for? @pattern
+        = link_to 'Unlike', unlike_show_pattern_path(@pattern), method: :put
+        %br   
+      - else
+        = link_to 'Like', like_show_pattern_path(@pattern), method: :put
+        %br
+
+  #pattern
+    = render 'shared/full_pattern_preview'
     - if current_user.id == @pattern.user_id
       = link_to 'Edit', edit_pattern_path(@pattern)
-      %br
+      \|
       = link_to 'Delete', @pattern, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-  = render 'shared/full_pattern_preview'
-
-  #info_show
-    %h3= "#{@pattern.name} by #{@pattern.user.try(:name)}"
-    %p= @pattern.description
-    %h5 Difficulty:
-    = @pattern.difficulty.try(:name)
-    %h5 Category:
-    = @pattern.category.try(:name)
-    %hr
-    %h5 Instructions:
-    %p= @pattern.instructions
-    - if @pattern.user_id == current_user.id
-      %h5 Notes:
-      = @pattern.notes
-    %h5 Yarn:
-    = @pattern.yarn
-    %h5 Equipment:
-    = @pattern.equipment
+  #info_name
+    %h4= "#{@pattern.name} by #{@pattern.user.try(:name)}"
+    #info_details
+      %p= @pattern.description
+      %p= 'Difficulty: ' + @pattern.difficulty.try(:name)
+      %p= 'Category: ' + @pattern.category.try(:name)
+      %hr{style: "color: white"}
+      %p Instructions:
+      %p= @pattern.instructions
+      - if @pattern.user_id == current_user.id
+        %p= 'Notes: ' + @pattern.notes
+      %p= 'Yarn: ' + @pattern.yarn
+      %p= 'Equipment: ' + @pattern.equipment
 
   .comments
-    %h3 Comments
+    %h4 Comments
     = render :partial => "comments/form", :locals => { :commentable => @pattern }
     = render :partial => 'comments/comment', :collection => @comments, :as => :comment
 

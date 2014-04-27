@@ -184,7 +184,7 @@ input#q_name_or_description_cont {
 }
 
 .pattern_row:last-of-type {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .stitch {
@@ -342,7 +342,6 @@ label.radio {
 
 #pattern {
   vertical-align: top;
-  width: 64%;
   display: inline-block;
 }
 
@@ -350,9 +349,20 @@ label.radio {
   display: none;
 }
 
-#info_show {
-  width: 28%;
+#info_name {
+  width: 30%;
+  float: right;
   display: inline-block;
+}
+
+#info_name h4 {
+  padding-left: 1.4em;
+}
+
+#info_details {
+  padding: 1.5em 2em 2em 2em;
+  border-top: 1px solid #04756F; 
+  background-color: #fafafa;
 }
 
 #manage_buttons {
