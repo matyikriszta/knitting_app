@@ -1,8 +1,11 @@
 .main 
+  #pattern_row_count
+    - @pattern.rows.each do |row|
+      =row.position
+      %br
   #pattern_edit{data: {id: @pattern.id}}
     - @pattern.rows.each do |row|
       .pattern_row{ id: row.id }
-        %p.small= row.try(:position)
         - row.stitches.each do |stitch|
           .stitch{ :style => "color: #{stitch.color}", :data => { id: stitch.id} }
             - if stitch.stitch_symbol.strip.empty?
@@ -21,9 +24,6 @@
         %a{:href => "#tabs-2"} Details
     #tabs-1
       = render 'shared/colorpicker'
-      %p Choose stitch type
-      %a{:href => '#', id: 'knit', class: 'type_swatch'} o
-      %a{:href => '#', id: 'purl', class: 'type_swatch'} x
       
 
       = button_to 'Save pattern', @pattern, remote: true, method: :update, class: 'btn'

@@ -160,15 +160,17 @@ input#q_name_or_description_cont {
 #pattern_edit {
   cursor: pointer;
   display: inline-block;
-  width: 68%;
   min-height: 100px;
   vertical-align: top;
   overflow: hidden;
 }
 
-#tabs.edit { width: 30%; }
-
-#info { width: 90%; }
+#pattern_row_count {
+  padding-top: 4px;
+  font-size: 84%;
+  display: inline-block;
+  line-height: 1.4;
+}
 
 .pattern_row {
   -webkit-user-select: none; /* Chrome/Safari */        
@@ -180,13 +182,9 @@ input#q_name_or_description_cont {
   user-select: none;
   height: 16px;
 }
+
 .pattern_row:last-of-type {
   margin-bottom: 20px;
-}
-
-.pattern_row p {
-  width: 2.5%;
-  display: inline-block;
 }
 
 .stitch {
@@ -201,6 +199,19 @@ input#q_name_or_description_cont {
   font-weight: bold;
   padding: 0;
   font-family: 'Sniglet', cursive;
+}
+
+#tabs.edit { 
+  float: right;
+  vertical-align: top;
+  width: 30%; 
+}
+
+#info, #palette { width: 92%; }
+
+.add_remove {
+  padding: 4px 12px 4px 0;
+  text-align: right;
 }
 
 textarea {
@@ -239,6 +250,7 @@ label.radio {
 }
 
 .color_swatch {
+  cursor: pointer;
   display: inline-block;
   margin: 0 8px 0 0; 
   width: 40px;

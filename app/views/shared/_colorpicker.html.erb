@@ -1,13 +1,19 @@
-<p>Choose colors</p>
-<div class="input-group demo2">
-  <input type="text" value="#FFFFFF" class="form-control" />
-  <span class="input-group-addon"><i id="my_colour_code"></i></span>
+<div id="palette">
+  <p>Choose colors</p>
+  <div class="input-group demo2">
+    <input type="text" value="#FFFFFF" class="form-control" />
+    <span class="input-group-addon"><i id="my_colour_code"></i></span>
+  </div>
+
+  <p class="add_remove"><a href="#" id="add"><i class="fa fa-plus"></i>  Add color to palette</a></p>
+
+  <% @pattern.colors.each do |color| %>
+    <div class="color_swatch" style="background-color: <%= color.color %>" data-id="<%= color.id %>"></div>
+  <% end %>
+
+  <p class="add_remove"><a href="#" id="remove"><i class="fa fa-minus"></i>  Remove colors</a></p>
+
+  <p>Choose stitch type</p>
+    <a href='#' id='knit' class='type_swatch'>o</a>
+    <a href='#' id='purl' class='type_swatch'>x</a>
 </div>
-
-<h5><a href="#" id="add"><i class="fa fa-plus"></i> Add color to palette</a></h5>
-
-<% @pattern.colors.each do |color| %>
-  <div class="color_swatch" style="background-color: <%= color.color %>" data-id="<%= color.id %>"></div>
-<% end %>
-
-<h5><a href="#" id="remove"><i class="fa fa-minus"></i> Remove colors</a></h5>
