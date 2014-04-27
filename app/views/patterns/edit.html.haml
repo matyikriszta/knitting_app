@@ -2,6 +2,7 @@
   #pattern_edit{data: {id: @pattern.id}}
     - @pattern.rows.each do |row|
       .pattern_row{ id: row.id }
+        %p.small= row.try(:position)
         - row.stitches.each do |stitch|
           .stitch{ :style => "color: #{stitch.color}", :data => { id: stitch.id} }
             - if stitch.stitch_symbol.strip.empty?
