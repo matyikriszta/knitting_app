@@ -425,7 +425,7 @@ button.ui-button::-moz-focus-inner {
 .ui-tabs .ui-tabs-panel {
 	display: block;
 	border-width: 0;
-	padding: 0.5em 0 1em 1em;
+	padding: 1.5em 0 2em 2em;
 	background: #fafafa;
 }
 
