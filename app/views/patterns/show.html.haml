@@ -1,6 +1,4 @@
 .main  
-  %p#notice= notice
-
   #share_buttons
     = link_to like_show_pattern_path(@pattern), method: :put do
       %i.fa.fa-heart.fa-2x
@@ -15,40 +13,7 @@
       %br
       = link_to 'Delete', @pattern, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-    / = render 'shared/fb_share'
-    / = render 'shared/pinterest_share'
-
-  #pattern
-    - if @pattern.rows.count <= 20
-      #pattern_show
-        - @pattern.rows.each do |row|
-          .pattern_row{ id: row.id }
-            - row.stitches.each do |stitch|
-              .stitch{ :style => "color: #{stitch.color}", :data => { id: stitch.id} } 
-                - if stitch.stitch_symbol.strip.empty?
-                  &nbsp;
-                - else
-                  =raw stitch.stitch_symbol.strip
-    - else
-      #pattern_show
-        - @pattern.rows[0..19].each do |row|
-          .pattern_row{ id: row.id }
-            - row.stitches.each do |stitch|
-              .stitch{ :style => "color: #{stitch.color}", :data => { id: stitch.id} } 
-                - if stitch.stitch_symbol.strip.empty?
-                  &nbsp;
-                - else
-                  = stitch.stitch_symbol.strip
-      #pattern_toggle{ :style => 'display: none'}
-        - @pattern.rows[20..-1].each do |row|
-          .pattern_row{ id: row.id }
-            - row.stitches.each do |stitch|
-              .stitch{ :style => "color: #{stitch.color}", :data => { id: stitch.id} } 
-                - if stitch.stitch_symbol.strip.empty?
-                  &nbsp;
-                - else
-                  = stitch.stitch_symbol.strip
-      %a{:href => "#", id: 'show_pattern'} Show
+  = render 'shared/full_pattern_preview'
 
   #info_show
     %h3= "#{@pattern.name} by #{@pattern.user.try(:name)}"
