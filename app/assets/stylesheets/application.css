@@ -158,12 +158,18 @@ input#q_name_or_description_cont {
 /*------------------------------- PATTERN EDIT --------------------------------*/
 
 #pattern_edit {
+  border: 1px solid black;
   cursor: pointer;
   display: inline-block;
   width: 68%;
   min-height: 100px;
   vertical-align: top;
   overflow: hidden;
+}
+
+#tabs.edit {
+  width: 30%;
+  border: 1px solid black;
 }
 
 .pattern_row {
@@ -191,10 +197,6 @@ input#q_name_or_description_cont {
   font-weight: bold;
   padding: 0;
   font-family: 'Sniglet', cursive;
-}
-
-#info {
-  width: 300px;
 }
 
 textarea {

@@ -1,8 +1,5 @@
 .main 
   #pattern_edit{data: {id: @pattern.id}}
-    = link_to "add a column", @pattern, remote: true, id: 'add_column'
-    \|
-    = link_to "add a row", @pattern, remote: true, id: 'add_row'
     - @pattern.rows.each do |row|
       .pattern_row{ id: row.id }
         - row.stitches.each do |stitch|
@@ -11,8 +8,11 @@
               &nbsp;
             - else
               =raw stitch.stitch_symbol.strip
+    = link_to "add a column", @pattern, remote: true, id: 'add_column'
+    \|
+    = link_to "add a row", @pattern, remote: true, id: 'add_row'
 
-  #tabs
+  #tabs.edit
     %ul
       %li
         %a{:href => "#tabs-1"} Pattern
@@ -20,7 +20,6 @@
         %a{:href => "#tabs-2"} Details
     #tabs-1
       = render 'shared/colorpicker'
-      %a{:href => '#', id: 'blank', class: 'type_swatch'}
       %a{:href => '#', id: 'knit', class: 'type_swatch'} o
       %a{:href => '#', id: 'purl', class: 'type_swatch'} x
       
