@@ -184,7 +184,7 @@ input#q_name_or_description_cont {
 }
 
 .pattern_row:last-of-type {
-  margin-bottom: 10px;
+  /*margin-bottom: 10px;*/
 }
 
 .stitch {

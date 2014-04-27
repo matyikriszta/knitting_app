@@ -12,14 +12,15 @@
 
   #pattern
     = render 'shared/full_pattern_preview'
-    - if current_user.id == @pattern.user_id
-      = link_to 'Edit', edit_pattern_path(@pattern)
-      \|
-      = link_to 'Delete', @pattern, :method => :delete, :data => { :confirm => 'Are you sure?' }
+    %a{:href => "#", id: 'show_pattern'} Show
 
   #info_name
     %h4= "#{@pattern.name} by #{@pattern.user.try(:name)}"
     #info_details
+      - if current_user.id == @pattern.user_id
+        = link_to 'Edit pattern', edit_pattern_path(@pattern)
+        \|
+        = link_to 'Delete pattern', @pattern, :method => :delete, :data => { :confirm => 'Are you sure?' }
       %p= @pattern.description
       %p= 'Difficulty: ' + @pattern.difficulty.try(:name)
       %p= 'Category: ' + @pattern.category.try(:name)
