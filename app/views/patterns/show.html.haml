@@ -12,7 +12,8 @@
 
   #pattern
     = render 'shared/full_pattern_preview'
-    %a{:href => "#", id: 'show_pattern'} Show
+    - unless @pattern.rows.count <= 24
+      %a{:href => "#", id: 'show_pattern'} Show
 
   #info_name
     %h4= "#{@pattern.name} by #{@pattern.user.try(:name)}"
