@@ -24,4 +24,4 @@
             = link_to image_tag("default-avatar-thumb.png"), user_path(pattern.user_id)
         .pattern_details
           %p= pattern.user.try(:name)
-          %p= "#{pattern.difficulty.try(:name)}, #{pattern.category.try(:name)}"
+          %p= "#{pattern.category.try(:name)}, #{pattern.difficulty.try(:name)}"
