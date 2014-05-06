@@ -55,14 +55,15 @@
       <li><%= link_to "Advanced", advanced_patterns_path %></li>
     </ul>
   </div>
-
-  <div id="profile" class="hidden profile_options">
-    <ul>
-      <li><%= link_to 'Your profile', user_path(current_user.id) %></li>
-      <li><%= link_to 'Settings', edit_user_path(current_user.id) %></li>
-      <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
-    </ul>
-  </div>
+  <% if current_user %>
+    <div id="profile" class="hidden profile_options">
+      <ul>
+        <li><%= link_to 'Your profile', user_path(current_user.id) %></li>
+        <li><%= link_to 'Settings', edit_user_path(current_user.id) %></li>
+        <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
+      </ul>
+    </div>
+  <% end %>
 
 </body>
 </html>
