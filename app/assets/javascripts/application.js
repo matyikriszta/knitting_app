@@ -138,12 +138,16 @@ $(document).ready(function(){
     })
   }
 
-  $('#new_pattern').replaceWith('<a href=#pattern_form rel="leanModal"><i class="fa fa-plus fa-2x"></i></a>');
+  $('#new_pattern').replaceWith('<a href=#pattern_form rel="leanModal"><span class="glyphicon glyphicon-plus"></span></a>');
 
   $("a[rel=leanModal]").leanModal();
 
-  $("#filter_dropdown").click(function(){
+  $("#filter_button").click(function(){
     $("#filter").toggleClass("hidden");
+  });
+
+  $("#profile_button").click(function(){
+    $("#profile").toggleClass("hidden");
   });
 
   $(".profile_img").hover(function(){

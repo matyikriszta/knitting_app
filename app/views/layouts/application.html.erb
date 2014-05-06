@@ -13,65 +13,29 @@
 </head>
 <body>
 
-  <div id="fb-root"></div>
-  <script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=633638270025005";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));</script>
-
   <!-- navbar -->
-  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-    <% if current_user %>
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><a href="#" id="filter_dropdown"><i class="fa fa-bars fa-2x"></i></a></li>
-      </ul>
-      <form class="navbar-form navbar-left hidden" role="search">
-        <div class="form-group">
+  <nav>
+    <ul class="fluid_container">
+      <% if current_user %>
+        <li id="filter_button"><span class="glyphicon glyphicon-th-list"></span></li>
+        <li id="search_form">
           <%= search_form_for @q do |f| %>
             <%= f.text_field :name_or_description_cont, placeholder: 'Search' %>
-            <%= f.submit "Search", :class => 'btn btn-default navbar-btn' %>
+            <%= f.submit "Search" %>
           <% end %>
-        </div>
-      </form>
-      <div class="navbar-brand nav"><%= link_to 'knitsy', patterns_path %></div>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to '', new_pattern_path, id: 'new_pattern' %></li>
-        <div id="pattern_form">
-          <%= render 'shared/new_pattern_form' %>
-        </div>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.name %> <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><%= link_to 'Your profile', user_path(current_user.id) %></li>
-            <li><%= link_to 'Settings', edit_user_path(current_user.id) %></li>
-            <li class="divider"></li>
-            <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
-          </ul>
         </li>
-      </ul>
+        <li id="logo"><%= link_to 'knitsy', patterns_path %></li>
+        <li id="add_pattern"><%= link_to '', new_pattern_path, id: 'new_pattern' %>
+          <div id="pattern_form">
+            <%= render 'shared/new_pattern_form' %>
+          </div>
+        </li>
+        <li id="profile_button"><%= current_user.name %></li>
       <% else %>
-        <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to 'SIGN UP', new_user_registration_path %></li>
-          <li><%= link_to 'LOGIN', new_user_session_path %></li>
-        </ul>
+        <li id="sign_up"><%= link_to 'SIGN UP', new_user_registration_path %></li>
+        <li id="login"><%= link_to 'LOGIN', new_user_session_path %></li>
       <% end %>
-    </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+    </ul>
   </nav>
   <!--   content -->
   
@@ -89,6 +53,14 @@
       <li><%= link_to "Easy", easy_patterns_path %></li>
       <li><%= link_to "Intermediate", intermediate_patterns_path %></li>
       <li><%= link_to "Advanced", advanced_patterns_path %></li>
+    </ul>
+  </div>
+
+  <div id="profile" class="hidden profile_options">
+    <ul>
+      <li><%= link_to 'Your profile', user_path(current_user.id) %></li>
+      <li><%= link_to 'Settings', edit_user_path(current_user.id) %></li>
+      <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
     </ul>
   </div>
 
