@@ -14,19 +14,25 @@
  *= require_tree .
  */
 
-body {}
+body {
+  font-family: 'Open Sans', sans-serif;
+}
 
 li { list-style-type: none; }
 
-#hero_image { margin-top: -20px; }
+/*------------------------------- LANDING PAGE --------------------------------*/
+
+#hero_image img {
+  width: 100%;
+}
 
 #intro {
-  padding: 40px 40px 110px 40px;
-  width: 30%;
+  padding: 40px 40px 80px 50px;
+  width: 440px;
   opacity: 0.9;
   background: #fff;
   position: fixed;
-  top: 6%;
+  top: 6.4%;
   left: 10%;
 }
 
@@ -35,22 +41,24 @@ li { list-style-type: none; }
   font-family: 'Lato', sans-serif;
   font-weight: 200; 
   font-size: 460%;
-  margin-bottom: 40px;
+  margin: 0 0 40px 0;
 }
 
 #intro p {
-  margin-bottom: 60px;
-  font-size: 120%;
+  margin-bottom: 50px;
+  font-size: 134%;
 }
 
 #intro a {
-  border-radius: 4px;
+  border-radius: 2px;
   padding: 12px 42px;
   background: #04756F;
   text-transform: uppercase;
   font-size: 140%;
   color: #fff;
 }
+
+/*------------------------------- MAIN LAYOUT --------------------------------*/
 
 .main {
   width: 1240px;
@@ -66,13 +74,13 @@ li { list-style-type: none; }
 /*------------------------------- NAVBAR --------------------------------*/
 
 nav {
+  height: 50px;
   padding: 0 0 10px 0;
   background-color: #fafafa;
   margin: 0 auto;
 }
 
 .fluid_container {
- /* border: 1px solid red;*/
   padding: 0;
   width: 86%;
   margin: 0 auto;
@@ -121,7 +129,6 @@ form#pattern_search {
 
 #logo a {
   color: #04756F;
-
 }
 
 #add_pattern {
@@ -158,6 +165,26 @@ form#pattern_search {
   padding-top: 18px;
   padding-left: 20px;
   font-size: 110%;
+}
+
+#sign_up, #login {
+  float: right;
+}
+
+#sign_up {
+  margin-top: 14px;
+  padding: 0 0 0 20px;
+}
+
+#login {
+  margin-top: 9px;
+  border-radius: 2px;
+  padding: 6px 20px 6px 20px;
+  background-color: #04756F;
+}
+
+#login a {
+  color: #fff;
 }
 
 /*------------------------------- NAV HIDDEN --------------------------------*/
